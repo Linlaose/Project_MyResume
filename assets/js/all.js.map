@@ -1,0 +1,1 @@
+{"version":3,"sources":["all.js"],"names":["$","console","log"],"mappings":";;AAAAA,CAAC,CAAC,YAAW;AACXC,EAAAA,OAAO,CAACC,GAAR,CAAY,kBAAZ;AACD,CAFA,CAAD","file":"all.js","sourcesContent":["$(function() {\n  console.log('Hello Bootstrap5');\n});"]}
