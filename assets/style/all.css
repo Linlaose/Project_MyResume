@@ -8208,6 +8208,10 @@ fieldset:disabled .btn {
   top: 12px !important;
 }
 
+.top-24 {
+  top: 24px !important;
+}
+
 .top-50 {
   top: 50% !important;
 }
@@ -8226,6 +8230,10 @@ fieldset:disabled .btn {
 
 .bottom-12 {
   bottom: 12px !important;
+}
+
+.bottom-24 {
+  bottom: 24px !important;
 }
 
 .bottom-50 {
@@ -8248,6 +8256,10 @@ fieldset:disabled .btn {
   left: 12px !important;
 }
 
+.start-24 {
+  left: 24px !important;
+}
+
 .start-50 {
   left: 50% !important;
 }
@@ -8266,6 +8278,10 @@ fieldset:disabled .btn {
 
 .end-12 {
   right: 12px !important;
+}
+
+.end-24 {
+  right: 24px !important;
 }
 
 .end-50 {
@@ -10624,6 +10640,10 @@ fieldset:disabled .btn {
   left: 12px !important;
 }
 
+.left-24 {
+  left: 24px !important;
+}
+
 .left-50 {
   left: 50% !important;
 }
@@ -10642,6 +10662,10 @@ fieldset:disabled .btn {
 
 .right-12 {
   right: 12px !important;
+}
+
+.right-24 {
+  right: 24px !important;
 }
 
 .right-50 {
@@ -18203,7 +18227,14 @@ a {
 }
 
 .show {
-  height: 100vh;
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  margin-top: 80px;
+  z-index: 10;
+  background: #fff;
 }
 
 @media (min-width: 992px) {
@@ -18238,7 +18269,7 @@ a {
   display: block;
   width: 175px;
   height: 48px;
-  background-image: url(../../../../app/assets/images/logo.svg);
+  background-image: url(./app/assets/images/logo.svg);
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
