@@ -283,6 +283,7 @@ $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) 
 $position-values: (
   0: 0,
   12: 12px, // 已客製
+  24: 24px, // 已客製
   50: 50%,
   85: 85%, // 已客製
   100: 100%

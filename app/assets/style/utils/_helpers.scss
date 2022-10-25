@@ -12,8 +12,15 @@
 .show {
   @include screen-lg {
     height: auto;
-  }
-  height: 100vh;
+  };
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  margin-top: 80px;
+  z-index: 10;
+  background: #fff;
 };
 
 // background
@@ -37,8 +44,8 @@
   display: block;
   width: 175px;
   height: 48px;
-  background-image: url(../../../../app/assets/images/logo.svg);
-  // background-image: url(../../../assets/images/logo.svg);
+  background-image: url(./app/assets/images/logo.svg); // 測試部署路徑
+  // background-image: url(../../../assets/images/logo.svg); // 開發路徑
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
