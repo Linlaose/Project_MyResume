@@ -44,8 +44,8 @@
   display: block;
   width: 175px;
   height: 48px;
-  background-image: url(../images/logo.svg); // 測試部署路徑
-  // background-image: url(../../../assets/images/logo.svg); // 開發路徑
+  background-image: url(../images/logo.svg); 
+  // 如果發生開發時本地端看得到圖片，部署 Github Page 之後看不到，那就嘗試把本地端資料夾名稱與 repository 名稱相同
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
