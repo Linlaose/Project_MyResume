@@ -18230,8 +18230,8 @@ a {
   position: fixed;
   bottom: 0;
   top: 0;
-  left: 12px;
-  right: 12px;
+  left: 0;
+  right: 0;
   margin-top: 80px;
   z-index: 10;
   background: #fff;
@@ -18269,7 +18269,7 @@ a {
   display: block;
   width: 175px;
   height: 48px;
-  background-image: url(./app/assets/images/logo.svg);
+  background-image: url(../images/logo.svg);
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
