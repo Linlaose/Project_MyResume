@@ -18275,7 +18275,7 @@ a {
   white-space: nowrap;
 }
 
-.burger__burger-topline {
+.burger__topline {
   display: block;
   width: 28px;
   height: 4px;
@@ -18285,7 +18285,7 @@ a {
   overflow: hidden;
 }
 
-.burger__burger-topline--open {
+.burger__topline--open {
   -webkit-transform-origin: 0 0;
       -ms-transform-origin: 0 0;
           transform-origin: 0 0;
@@ -18294,7 +18294,7 @@ a {
           transform: rotate(45deg);
 }
 
-.burger__burger-midline {
+.burger__midline {
   display: block;
   width: 28px;
   height: 4px;
@@ -18304,7 +18304,7 @@ a {
   overflow: hidden;
 }
 
-.burger__burger-midline--open {
+.burger__midline--open {
   -webkit-transform-origin: 0 0;
       -ms-transform-origin: 0 0;
           transform-origin: 0 0;
@@ -18314,7 +18314,7 @@ a {
   opacity: 0;
 }
 
-.burger__burger-btmline {
+.burger__btmline {
   display: block;
   width: 28px;
   height: 4px;
@@ -18324,7 +18324,7 @@ a {
   overflow: hidden;
 }
 
-.burger__burger-btmline--open {
+.burger__btmline--open {
   margin-top: 6px !important;
   -webkit-transform-origin: bottom left;
       -ms-transform-origin: bottom left;
