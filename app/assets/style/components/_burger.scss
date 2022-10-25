@@ -1,0 +1,37 @@
+.burger {
+  &__burger-topline {
+    display: block;
+    width: 28px;
+    height: 4px;
+    transition: all .5s;
+    overflow: hidden;
+    &--open {
+      transform-origin: 0 0;
+      transform: rotate(45deg);
+    };
+  };
+  &__burger-midline {
+    display: block;
+    width: 28px;
+    height: 4px;
+    transition: all .5s;
+    overflow: hidden;
+    &--open {
+      transform-origin: 0 0;
+      transform: rotate(45deg);
+      opacity: 0;
+    };
+  };
+  &__burger-btmline {
+    display: block;
+    width: 28px;
+    height: 4px;
+    transition: all .5s;
+    overflow: hidden;
+    &--open {
+      margin-top: 6px !important;
+      transform-origin: bottom left;
+      transform: rotate(-45deg);
+    };
+  };
+};

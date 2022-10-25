@@ -64,14 +64,14 @@ $utilities: map-merge(
       property: bottom,
       values: $position-values
     ),
-    "start": (
+    "left": ( // start // 已客製 (只改 class 也能用)
       property: left,
-      class: start,
+      class: left, // start // 已客製
       values: $position-values
     ),
-    "end": (
+    "right": ( // end // 已客製 (只改 class 也能用)
       property: right,
-      class: end,
+      class: right, // end // 已客製
       values: $position-values
     ),
     "translate-middle": (
@@ -144,7 +144,12 @@ $utilities: map-merge(
         50: 50%,
         75: 75%,
         100: 100%,
-        auto: auto
+        auto: auto,
+
+        // 已客製
+        4px: 4px,
+        28px: 28px,
+        40px: 40px,
       )
     ),
     "max-width": (
@@ -170,7 +175,12 @@ $utilities: map-merge(
         50: 50%,
         75: 75%,
         100: 100%,
-        auto: auto
+        auto: auto,
+
+        // 已客製
+        4px: 4px,
+        28px: 28px,
+        40px: 40px,
       )
     ),
     "max-height": (
@@ -459,7 +469,7 @@ $utilities: map-merge(
       property: line-height,
       class: lh,
       values: (
-        1: 1,
+        1: 1.2, // 1: 1, // 已客製
         sm: $line-height-sm,
         base: $line-height-base,
         lg: $line-height-lg,
@@ -503,6 +513,8 @@ $utilities: map-merge(
     "color": (
       property: color,
       class: text,
+      state: hover focus, // 已客製
+      responsive: true,
       values: map-merge(
         $theme-colors,
         (
@@ -512,6 +524,7 @@ $utilities: map-merge(
           "black-50": rgba($black, .5),
           "white-50": rgba($white, .5),
           "reset": inherit,
+          "primary": $primary, // 已客製
         )
       )
     ),
@@ -520,6 +533,7 @@ $utilities: map-merge(
     "background-color": (
       property: background-color,
       class: bg,
+      state: hover focus, // 已客製
       values: map-merge(
         $theme-colors,
         (
@@ -556,6 +570,7 @@ $utilities: map-merge(
         1: $border-radius-sm,
         2: $border-radius,
         3: $border-radius-lg,
+        16px: 16px, // 已客製
         circle: 50%,
         pill: $border-radius-pill
       )
@@ -592,7 +607,7 @@ $utilities: map-merge(
     ),
     "opacity": (property: opacity,
       class: opacity,
-      state: hover,
+      state: hover focus, // 已客製
       values: (
         0: 0,
         25: .25,

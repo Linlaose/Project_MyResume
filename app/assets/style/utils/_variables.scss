@@ -282,7 +282,9 @@ $negative-spacers: if($enable-negative-margins, negativify-map($spacers), null) 
 // scss-docs-start position-map
 $position-values: (
   0: 0,
+  12: 12px, // 已客製
   50: 50%,
+  85: 85%, // 已客製
   100: 100%
 ) !default;
 // scss-docs-end position-map

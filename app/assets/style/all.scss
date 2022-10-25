@@ -5,4 +5,7 @@
 
 
 @import './base/reset.scss';
+@import './utils/mixins.scss';
+@import './utils/helpers.scss';
+@import './components/burger.scss';
 @import './layout/index.scss';

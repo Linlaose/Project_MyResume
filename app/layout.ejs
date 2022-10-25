@@ -19,69 +19,86 @@
   </head>
 
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+    <nav class="navbar navbar-expand-lg navbar-light py-4">
+      <div class="container-fluid d-flex justify-content-bewteen">
+        <h1 class="m-0">
+          <a
+            class="navbar-brand mr-0 h1-image p-0"
+            title="MyResume"
+            href="./index.html"
+            >MyResume</a
+          >
+        </h1>
         <button
-          class="navbar-toggler"
+          class="burger border-0 bg-transparent px-2 py-3 d-lg-none"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
+          data-bs-target="#projectNavbar"
+          aria-controls="projectNavbar"
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span class="bg-gradient burger__burger-topline rounded-pill"></span>
+          <span
+            class="bg-gradient burger__burger-midline rounded-pill mt-1"
+          ></span>
+          <span
+            class="bg-gradient burger__burger-btmline rounded-pill mt-1"
+          ></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <div
+          class="collapse navbar-collapse justify-content-center"
+          id="projectNavbar"
+        >
+          <ul class="navbar-nav me-auto pt-6 p-lg-0">
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Link</a>
-            </li>
-            <li class="nav-item dropdown">
               <a
-                class="nav-link dropdown-toggle"
+                class="nav-link active p-4 bg-secondary-focus rounded-16px text-primary-focus text-lg-primary-hover fs-5 lh-1"
+                aria-current="page"
                 href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
+                >首頁</a
               >
-                Dropdown
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="#">Action</a></li>
-                <li><a class="dropdown-item" href="#">Another action</a></li>
-                <li><hr class="dropdown-divider" /></li>
-                <li>
-                  <a class="dropdown-item" href="#">Something else here</a>
-                </li>
-              </ul>
             </li>
-            <li class="nav-item">
+            <li class="nav-item ml-lg-12">
               <a
-                class="nav-link disabled"
+                class="nav-link active p-4 bg-secondary-focus rounded-16px text-primary-focus text-lg-primary-hover fs-5 lh-1"
+                aria-current="page"
                 href="#"
-                tabindex="-1"
-                aria-disabled="true"
-                >Disabled</a
+                >設計類</a
+              >
+            </li>
+            <li class="nav-item ml-lg-12">
+              <a
+                class="nav-link active p-4 bg-secondary-focus rounded-16px text-primary-focus text-lg-primary-hover fs-5 lh-1"
+                aria-current="page"
+                href="#"
+                >工程類</a
+              >
+            </li>
+            <li class="nav-item ml-lg-12">
+              <a
+                class="nav-link active p-4 bg-secondary-focus rounded-16px text-primary-focus text-lg-primary-hover fs-5 lh-1"
+                aria-current="page"
+                href="#"
+                >管理類</a
               >
             </li>
           </ul>
-          <form class="d-flex">
-            <input
-              class="form-control me-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success" type="submit">
-              Search
-            </button>
-          </form>
+          <div>
+            <a
+              class="btn rounded-pill background-gradient-linear text-white py-3 px-6 opacity-75-focus fs-5 lh-1 transition-300 d-lg-none position-absolute top-85 left-12 right-12"
+              href="./login.html"
+              >登入/註冊</a
+            >
+          </div>
+        </div>
+        <div class="d-none d-lg-block">
+          <a
+            class="collapse navbar-collapse btn rounded-pill background-gradient-linear text-white py-3 px-6 opacity-75-hover fs-5 lh-1 transition-300"
+            href="./login.html"
+          >
+            登入/註冊
+          </a>
         </div>
       </div>
     </nav>

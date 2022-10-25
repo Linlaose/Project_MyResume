@@ -1,0 +1,44 @@
+// transition
+.transition-300 {
+  transition: all .3s;
+};
+
+// focus
+
+
+// border
+
+// navbar mobile
+.show {
+  @include screen-lg {
+    height: auto;
+  }
+  height: 100vh;
+};
+
+// background
+.background-gradient-linear {
+  background: linear-gradient(135deg, #3B7FCF 0%, #64ABFF 100%);
+  transition: all .5s;
+  &:focus {
+    color: #3B7FCF !important;
+    background: linear-gradient(135deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
+  }
+  @include screen-lg {
+    &:hover {
+      color: #3B7FCF !important;
+      background: linear-gradient(135deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
+    };
+  }
+};
+
+// 圖片取代文字
+.h1-image {
+  display: block;
+  width: 175px;
+  height: 48px;
+  background-image: url(../../../assets/images/logo.svg);
+  overflow: hidden;
+  text-indent: 101%;
+  white-space: nowrap;
+};
