@@ -513,7 +513,7 @@ $utilities: map-merge(
     "color": (
       property: color,
       class: text,
-      state: hover focus, // 已客製
+      state: hover focus active, // 已客製
       responsive: true,
       values: map-merge(
         $theme-colors,
@@ -533,7 +533,7 @@ $utilities: map-merge(
     "background-color": (
       property: background-color,
       class: bg,
-      state: hover focus, // 已客製
+      state: hover focus active, // 已客製
       values: map-merge(
         $theme-colors,
         (
