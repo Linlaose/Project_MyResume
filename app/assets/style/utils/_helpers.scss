@@ -9,9 +9,11 @@
 // border
 
 // navbar mobile
-.show {
+.burger-show {
   @include screen-lg {
     height: auto;
+    position: static;
+    margin-top: 0;
   };
   position: fixed;
   bottom: 0;
