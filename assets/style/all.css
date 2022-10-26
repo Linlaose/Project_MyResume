@@ -18203,7 +18203,7 @@ img {
   transition: all .3s;
 }
 
-.show {
+.burger-show {
   position: fixed;
   bottom: 0;
   top: 0;
@@ -18215,8 +18215,10 @@ img {
 }
 
 @media (min-width: 992px) {
-  .show {
+  .burger-show {
     height: auto;
+    position: static;
+    margin-top: 0;
   }
 }
 
