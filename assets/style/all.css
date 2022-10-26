@@ -18544,7 +18544,7 @@ img {
   transition: all .5s;
 }
 
-.background-gradient-linear:focus {
+.background-gradient-linear:active {
   color: #3B7FCF !important;
   background: -o-linear-gradient(315deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
   background: linear-gradient(135deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
