@@ -443,7 +443,7 @@ $utilities: map-merge(
       values: (monospace: var(--#{$variable-prefix}font-monospace))
     ),
     "font-size": (
-      rfs: true,
+      rfs: false, // 已客製
       property: font-size,
       responsive: true, // 已客製
       class: fs,
