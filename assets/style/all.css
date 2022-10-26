@@ -10243,6 +10243,10 @@ fieldset:disabled .btn {
   color: #3B7FCF !important;
 }
 
+.text-primary-active:active {
+  color: #3B7FCF !important;
+}
+
 .text-secondary {
   color: #F0F7FF !important;
 }
@@ -10252,6 +10256,10 @@ fieldset:disabled .btn {
 }
 
 .text-secondary-focus:focus {
+  color: #F0F7FF !important;
+}
+
+.text-secondary-active:active {
   color: #F0F7FF !important;
 }
 
@@ -10267,6 +10275,10 @@ fieldset:disabled .btn {
   color: #198754 !important;
 }
 
+.text-success-active:active {
+  color: #198754 !important;
+}
+
 .text-info {
   color: #0dcaf0 !important;
 }
@@ -10276,6 +10288,10 @@ fieldset:disabled .btn {
 }
 
 .text-info-focus:focus {
+  color: #0dcaf0 !important;
+}
+
+.text-info-active:active {
   color: #0dcaf0 !important;
 }
 
@@ -10291,6 +10307,10 @@ fieldset:disabled .btn {
   color: #ffc107 !important;
 }
 
+.text-warning-active:active {
+  color: #ffc107 !important;
+}
+
 .text-danger {
   color: #dc3545 !important;
 }
@@ -10300,6 +10320,10 @@ fieldset:disabled .btn {
 }
 
 .text-danger-focus:focus {
+  color: #dc3545 !important;
+}
+
+.text-danger-active:active {
   color: #dc3545 !important;
 }
 
@@ -10315,6 +10339,10 @@ fieldset:disabled .btn {
   color: #7E7E7E !important;
 }
 
+.text-light-active:active {
+  color: #7E7E7E !important;
+}
+
 .text-dark {
   color: #1E1E1E !important;
 }
@@ -10324,6 +10352,10 @@ fieldset:disabled .btn {
 }
 
 .text-dark-focus:focus {
+  color: #1E1E1E !important;
+}
+
+.text-dark-active:active {
   color: #1E1E1E !important;
 }
 
@@ -10339,6 +10371,10 @@ fieldset:disabled .btn {
   color: #fff !important;
 }
 
+.text-white-active:active {
+  color: #fff !important;
+}
+
 .text-body {
   color: #212529 !important;
 }
@@ -10348,6 +10384,10 @@ fieldset:disabled .btn {
 }
 
 .text-body-focus:focus {
+  color: #212529 !important;
+}
+
+.text-body-active:active {
   color: #212529 !important;
 }
 
@@ -10363,6 +10403,10 @@ fieldset:disabled .btn {
   color: #6c757d !important;
 }
 
+.text-muted-active:active {
+  color: #6c757d !important;
+}
+
 .text-black-50 {
   color: rgba(0, 0, 0, 0.5) !important;
 }
@@ -10372,6 +10416,10 @@ fieldset:disabled .btn {
 }
 
 .text-black-50-focus:focus {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+.text-black-50-active:active {
   color: rgba(0, 0, 0, 0.5) !important;
 }
 
@@ -10387,6 +10435,10 @@ fieldset:disabled .btn {
   color: rgba(255, 255, 255, 0.5) !important;
 }
 
+.text-white-50-active:active {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
 .text-reset {
   color: inherit !important;
 }
@@ -10396,6 +10448,10 @@ fieldset:disabled .btn {
 }
 
 .text-reset-focus:focus {
+  color: inherit !important;
+}
+
+.text-reset-active:active {
   color: inherit !important;
 }
 
@@ -10411,6 +10467,10 @@ fieldset:disabled .btn {
   background-color: #3B7FCF !important;
 }
 
+.bg-primary-active:active {
+  background-color: #3B7FCF !important;
+}
+
 .bg-secondary {
   background-color: #F0F7FF !important;
 }
@@ -10420,6 +10480,10 @@ fieldset:disabled .btn {
 }
 
 .bg-secondary-focus:focus {
+  background-color: #F0F7FF !important;
+}
+
+.bg-secondary-active:active {
   background-color: #F0F7FF !important;
 }
 
@@ -10435,6 +10499,10 @@ fieldset:disabled .btn {
   background-color: #198754 !important;
 }
 
+.bg-success-active:active {
+  background-color: #198754 !important;
+}
+
 .bg-info {
   background-color: #0dcaf0 !important;
 }
@@ -10444,6 +10512,10 @@ fieldset:disabled .btn {
 }
 
 .bg-info-focus:focus {
+  background-color: #0dcaf0 !important;
+}
+
+.bg-info-active:active {
   background-color: #0dcaf0 !important;
 }
 
@@ -10459,6 +10531,10 @@ fieldset:disabled .btn {
   background-color: #ffc107 !important;
 }
 
+.bg-warning-active:active {
+  background-color: #ffc107 !important;
+}
+
 .bg-danger {
   background-color: #dc3545 !important;
 }
@@ -10468,6 +10544,10 @@ fieldset:disabled .btn {
 }
 
 .bg-danger-focus:focus {
+  background-color: #dc3545 !important;
+}
+
+.bg-danger-active:active {
   background-color: #dc3545 !important;
 }
 
@@ -10483,6 +10563,10 @@ fieldset:disabled .btn {
   background-color: #7E7E7E !important;
 }
 
+.bg-light-active:active {
+  background-color: #7E7E7E !important;
+}
+
 .bg-dark {
   background-color: #1E1E1E !important;
 }
@@ -10492,6 +10576,10 @@ fieldset:disabled .btn {
 }
 
 .bg-dark-focus:focus {
+  background-color: #1E1E1E !important;
+}
+
+.bg-dark-active:active {
   background-color: #1E1E1E !important;
 }
 
@@ -10507,6 +10595,10 @@ fieldset:disabled .btn {
   background-color: #fff !important;
 }
 
+.bg-body-active:active {
+  background-color: #fff !important;
+}
+
 .bg-white {
   background-color: #fff !important;
 }
@@ -10516,6 +10608,10 @@ fieldset:disabled .btn {
 }
 
 .bg-white-focus:focus {
+  background-color: #fff !important;
+}
+
+.bg-white-active:active {
   background-color: #fff !important;
 }
 
@@ -10531,6 +10627,10 @@ fieldset:disabled .btn {
   background-color: transparent !important;
 }
 
+.bg-transparent-active:active {
+  background-color: transparent !important;
+}
+
 .bg-gray {
   background-color: #FBFBFD !important;
 }
@@ -10540,6 +10640,10 @@ fieldset:disabled .btn {
 }
 
 .bg-gray-focus:focus {
+  background-color: #FBFBFD !important;
+}
+
+.bg-gray-active:active {
   background-color: #FBFBFD !important;
 }
 
@@ -12104,6 +12208,9 @@ fieldset:disabled .btn {
   .text-sm-primary-focus:focus {
     color: #3B7FCF !important;
   }
+  .text-sm-primary-active:active {
+    color: #3B7FCF !important;
+  }
   .text-sm-secondary {
     color: #F0F7FF !important;
   }
@@ -12111,6 +12218,9 @@ fieldset:disabled .btn {
     color: #F0F7FF !important;
   }
   .text-sm-secondary-focus:focus {
+    color: #F0F7FF !important;
+  }
+  .text-sm-secondary-active:active {
     color: #F0F7FF !important;
   }
   .text-sm-success {
@@ -12122,6 +12232,9 @@ fieldset:disabled .btn {
   .text-sm-success-focus:focus {
     color: #198754 !important;
   }
+  .text-sm-success-active:active {
+    color: #198754 !important;
+  }
   .text-sm-info {
     color: #0dcaf0 !important;
   }
@@ -12129,6 +12242,9 @@ fieldset:disabled .btn {
     color: #0dcaf0 !important;
   }
   .text-sm-info-focus:focus {
+    color: #0dcaf0 !important;
+  }
+  .text-sm-info-active:active {
     color: #0dcaf0 !important;
   }
   .text-sm-warning {
@@ -12140,6 +12256,9 @@ fieldset:disabled .btn {
   .text-sm-warning-focus:focus {
     color: #ffc107 !important;
   }
+  .text-sm-warning-active:active {
+    color: #ffc107 !important;
+  }
   .text-sm-danger {
     color: #dc3545 !important;
   }
@@ -12147,6 +12266,9 @@ fieldset:disabled .btn {
     color: #dc3545 !important;
   }
   .text-sm-danger-focus:focus {
+    color: #dc3545 !important;
+  }
+  .text-sm-danger-active:active {
     color: #dc3545 !important;
   }
   .text-sm-light {
@@ -12158,6 +12280,9 @@ fieldset:disabled .btn {
   .text-sm-light-focus:focus {
     color: #7E7E7E !important;
   }
+  .text-sm-light-active:active {
+    color: #7E7E7E !important;
+  }
   .text-sm-dark {
     color: #1E1E1E !important;
   }
@@ -12165,6 +12290,9 @@ fieldset:disabled .btn {
     color: #1E1E1E !important;
   }
   .text-sm-dark-focus:focus {
+    color: #1E1E1E !important;
+  }
+  .text-sm-dark-active:active {
     color: #1E1E1E !important;
   }
   .text-sm-white {
@@ -12176,6 +12304,9 @@ fieldset:disabled .btn {
   .text-sm-white-focus:focus {
     color: #fff !important;
   }
+  .text-sm-white-active:active {
+    color: #fff !important;
+  }
   .text-sm-body {
     color: #212529 !important;
   }
@@ -12183,6 +12314,9 @@ fieldset:disabled .btn {
     color: #212529 !important;
   }
   .text-sm-body-focus:focus {
+    color: #212529 !important;
+  }
+  .text-sm-body-active:active {
     color: #212529 !important;
   }
   .text-sm-muted {
@@ -12194,6 +12328,9 @@ fieldset:disabled .btn {
   .text-sm-muted-focus:focus {
     color: #6c757d !important;
   }
+  .text-sm-muted-active:active {
+    color: #6c757d !important;
+  }
   .text-sm-black-50 {
     color: rgba(0, 0, 0, 0.5) !important;
   }
@@ -12201,6 +12338,9 @@ fieldset:disabled .btn {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-sm-black-50-focus:focus {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .text-sm-black-50-active:active {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-sm-white-50 {
@@ -12212,6 +12352,9 @@ fieldset:disabled .btn {
   .text-sm-white-50-focus:focus {
     color: rgba(255, 255, 255, 0.5) !important;
   }
+  .text-sm-white-50-active:active {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
   .text-sm-reset {
     color: inherit !important;
   }
@@ -12219,6 +12362,9 @@ fieldset:disabled .btn {
     color: inherit !important;
   }
   .text-sm-reset-focus:focus {
+    color: inherit !important;
+  }
+  .text-sm-reset-active:active {
     color: inherit !important;
   }
 }
@@ -13583,6 +13729,9 @@ fieldset:disabled .btn {
   .text-md-primary-focus:focus {
     color: #3B7FCF !important;
   }
+  .text-md-primary-active:active {
+    color: #3B7FCF !important;
+  }
   .text-md-secondary {
     color: #F0F7FF !important;
   }
@@ -13590,6 +13739,9 @@ fieldset:disabled .btn {
     color: #F0F7FF !important;
   }
   .text-md-secondary-focus:focus {
+    color: #F0F7FF !important;
+  }
+  .text-md-secondary-active:active {
     color: #F0F7FF !important;
   }
   .text-md-success {
@@ -13601,6 +13753,9 @@ fieldset:disabled .btn {
   .text-md-success-focus:focus {
     color: #198754 !important;
   }
+  .text-md-success-active:active {
+    color: #198754 !important;
+  }
   .text-md-info {
     color: #0dcaf0 !important;
   }
@@ -13608,6 +13763,9 @@ fieldset:disabled .btn {
     color: #0dcaf0 !important;
   }
   .text-md-info-focus:focus {
+    color: #0dcaf0 !important;
+  }
+  .text-md-info-active:active {
     color: #0dcaf0 !important;
   }
   .text-md-warning {
@@ -13619,6 +13777,9 @@ fieldset:disabled .btn {
   .text-md-warning-focus:focus {
     color: #ffc107 !important;
   }
+  .text-md-warning-active:active {
+    color: #ffc107 !important;
+  }
   .text-md-danger {
     color: #dc3545 !important;
   }
@@ -13626,6 +13787,9 @@ fieldset:disabled .btn {
     color: #dc3545 !important;
   }
   .text-md-danger-focus:focus {
+    color: #dc3545 !important;
+  }
+  .text-md-danger-active:active {
     color: #dc3545 !important;
   }
   .text-md-light {
@@ -13637,6 +13801,9 @@ fieldset:disabled .btn {
   .text-md-light-focus:focus {
     color: #7E7E7E !important;
   }
+  .text-md-light-active:active {
+    color: #7E7E7E !important;
+  }
   .text-md-dark {
     color: #1E1E1E !important;
   }
@@ -13644,6 +13811,9 @@ fieldset:disabled .btn {
     color: #1E1E1E !important;
   }
   .text-md-dark-focus:focus {
+    color: #1E1E1E !important;
+  }
+  .text-md-dark-active:active {
     color: #1E1E1E !important;
   }
   .text-md-white {
@@ -13655,6 +13825,9 @@ fieldset:disabled .btn {
   .text-md-white-focus:focus {
     color: #fff !important;
   }
+  .text-md-white-active:active {
+    color: #fff !important;
+  }
   .text-md-body {
     color: #212529 !important;
   }
@@ -13662,6 +13835,9 @@ fieldset:disabled .btn {
     color: #212529 !important;
   }
   .text-md-body-focus:focus {
+    color: #212529 !important;
+  }
+  .text-md-body-active:active {
     color: #212529 !important;
   }
   .text-md-muted {
@@ -13673,6 +13849,9 @@ fieldset:disabled .btn {
   .text-md-muted-focus:focus {
     color: #6c757d !important;
   }
+  .text-md-muted-active:active {
+    color: #6c757d !important;
+  }
   .text-md-black-50 {
     color: rgba(0, 0, 0, 0.5) !important;
   }
@@ -13680,6 +13859,9 @@ fieldset:disabled .btn {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-md-black-50-focus:focus {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .text-md-black-50-active:active {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-md-white-50 {
@@ -13691,6 +13873,9 @@ fieldset:disabled .btn {
   .text-md-white-50-focus:focus {
     color: rgba(255, 255, 255, 0.5) !important;
   }
+  .text-md-white-50-active:active {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
   .text-md-reset {
     color: inherit !important;
   }
@@ -13698,6 +13883,9 @@ fieldset:disabled .btn {
     color: inherit !important;
   }
   .text-md-reset-focus:focus {
+    color: inherit !important;
+  }
+  .text-md-reset-active:active {
     color: inherit !important;
   }
 }
@@ -15062,6 +15250,9 @@ fieldset:disabled .btn {
   .text-lg-primary-focus:focus {
     color: #3B7FCF !important;
   }
+  .text-lg-primary-active:active {
+    color: #3B7FCF !important;
+  }
   .text-lg-secondary {
     color: #F0F7FF !important;
   }
@@ -15069,6 +15260,9 @@ fieldset:disabled .btn {
     color: #F0F7FF !important;
   }
   .text-lg-secondary-focus:focus {
+    color: #F0F7FF !important;
+  }
+  .text-lg-secondary-active:active {
     color: #F0F7FF !important;
   }
   .text-lg-success {
@@ -15080,6 +15274,9 @@ fieldset:disabled .btn {
   .text-lg-success-focus:focus {
     color: #198754 !important;
   }
+  .text-lg-success-active:active {
+    color: #198754 !important;
+  }
   .text-lg-info {
     color: #0dcaf0 !important;
   }
@@ -15087,6 +15284,9 @@ fieldset:disabled .btn {
     color: #0dcaf0 !important;
   }
   .text-lg-info-focus:focus {
+    color: #0dcaf0 !important;
+  }
+  .text-lg-info-active:active {
     color: #0dcaf0 !important;
   }
   .text-lg-warning {
@@ -15098,6 +15298,9 @@ fieldset:disabled .btn {
   .text-lg-warning-focus:focus {
     color: #ffc107 !important;
   }
+  .text-lg-warning-active:active {
+    color: #ffc107 !important;
+  }
   .text-lg-danger {
     color: #dc3545 !important;
   }
@@ -15105,6 +15308,9 @@ fieldset:disabled .btn {
     color: #dc3545 !important;
   }
   .text-lg-danger-focus:focus {
+    color: #dc3545 !important;
+  }
+  .text-lg-danger-active:active {
     color: #dc3545 !important;
   }
   .text-lg-light {
@@ -15116,6 +15322,9 @@ fieldset:disabled .btn {
   .text-lg-light-focus:focus {
     color: #7E7E7E !important;
   }
+  .text-lg-light-active:active {
+    color: #7E7E7E !important;
+  }
   .text-lg-dark {
     color: #1E1E1E !important;
   }
@@ -15123,6 +15332,9 @@ fieldset:disabled .btn {
     color: #1E1E1E !important;
   }
   .text-lg-dark-focus:focus {
+    color: #1E1E1E !important;
+  }
+  .text-lg-dark-active:active {
     color: #1E1E1E !important;
   }
   .text-lg-white {
@@ -15134,6 +15346,9 @@ fieldset:disabled .btn {
   .text-lg-white-focus:focus {
     color: #fff !important;
   }
+  .text-lg-white-active:active {
+    color: #fff !important;
+  }
   .text-lg-body {
     color: #212529 !important;
   }
@@ -15141,6 +15356,9 @@ fieldset:disabled .btn {
     color: #212529 !important;
   }
   .text-lg-body-focus:focus {
+    color: #212529 !important;
+  }
+  .text-lg-body-active:active {
     color: #212529 !important;
   }
   .text-lg-muted {
@@ -15152,6 +15370,9 @@ fieldset:disabled .btn {
   .text-lg-muted-focus:focus {
     color: #6c757d !important;
   }
+  .text-lg-muted-active:active {
+    color: #6c757d !important;
+  }
   .text-lg-black-50 {
     color: rgba(0, 0, 0, 0.5) !important;
   }
@@ -15159,6 +15380,9 @@ fieldset:disabled .btn {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-lg-black-50-focus:focus {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .text-lg-black-50-active:active {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-lg-white-50 {
@@ -15170,6 +15394,9 @@ fieldset:disabled .btn {
   .text-lg-white-50-focus:focus {
     color: rgba(255, 255, 255, 0.5) !important;
   }
+  .text-lg-white-50-active:active {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
   .text-lg-reset {
     color: inherit !important;
   }
@@ -15177,6 +15404,9 @@ fieldset:disabled .btn {
     color: inherit !important;
   }
   .text-lg-reset-focus:focus {
+    color: inherit !important;
+  }
+  .text-lg-reset-active:active {
     color: inherit !important;
   }
 }
@@ -16541,6 +16771,9 @@ fieldset:disabled .btn {
   .text-xl-primary-focus:focus {
     color: #3B7FCF !important;
   }
+  .text-xl-primary-active:active {
+    color: #3B7FCF !important;
+  }
   .text-xl-secondary {
     color: #F0F7FF !important;
   }
@@ -16548,6 +16781,9 @@ fieldset:disabled .btn {
     color: #F0F7FF !important;
   }
   .text-xl-secondary-focus:focus {
+    color: #F0F7FF !important;
+  }
+  .text-xl-secondary-active:active {
     color: #F0F7FF !important;
   }
   .text-xl-success {
@@ -16559,6 +16795,9 @@ fieldset:disabled .btn {
   .text-xl-success-focus:focus {
     color: #198754 !important;
   }
+  .text-xl-success-active:active {
+    color: #198754 !important;
+  }
   .text-xl-info {
     color: #0dcaf0 !important;
   }
@@ -16566,6 +16805,9 @@ fieldset:disabled .btn {
     color: #0dcaf0 !important;
   }
   .text-xl-info-focus:focus {
+    color: #0dcaf0 !important;
+  }
+  .text-xl-info-active:active {
     color: #0dcaf0 !important;
   }
   .text-xl-warning {
@@ -16577,6 +16819,9 @@ fieldset:disabled .btn {
   .text-xl-warning-focus:focus {
     color: #ffc107 !important;
   }
+  .text-xl-warning-active:active {
+    color: #ffc107 !important;
+  }
   .text-xl-danger {
     color: #dc3545 !important;
   }
@@ -16584,6 +16829,9 @@ fieldset:disabled .btn {
     color: #dc3545 !important;
   }
   .text-xl-danger-focus:focus {
+    color: #dc3545 !important;
+  }
+  .text-xl-danger-active:active {
     color: #dc3545 !important;
   }
   .text-xl-light {
@@ -16595,6 +16843,9 @@ fieldset:disabled .btn {
   .text-xl-light-focus:focus {
     color: #7E7E7E !important;
   }
+  .text-xl-light-active:active {
+    color: #7E7E7E !important;
+  }
   .text-xl-dark {
     color: #1E1E1E !important;
   }
@@ -16602,6 +16853,9 @@ fieldset:disabled .btn {
     color: #1E1E1E !important;
   }
   .text-xl-dark-focus:focus {
+    color: #1E1E1E !important;
+  }
+  .text-xl-dark-active:active {
     color: #1E1E1E !important;
   }
   .text-xl-white {
@@ -16613,6 +16867,9 @@ fieldset:disabled .btn {
   .text-xl-white-focus:focus {
     color: #fff !important;
   }
+  .text-xl-white-active:active {
+    color: #fff !important;
+  }
   .text-xl-body {
     color: #212529 !important;
   }
@@ -16620,6 +16877,9 @@ fieldset:disabled .btn {
     color: #212529 !important;
   }
   .text-xl-body-focus:focus {
+    color: #212529 !important;
+  }
+  .text-xl-body-active:active {
     color: #212529 !important;
   }
   .text-xl-muted {
@@ -16631,6 +16891,9 @@ fieldset:disabled .btn {
   .text-xl-muted-focus:focus {
     color: #6c757d !important;
   }
+  .text-xl-muted-active:active {
+    color: #6c757d !important;
+  }
   .text-xl-black-50 {
     color: rgba(0, 0, 0, 0.5) !important;
   }
@@ -16638,6 +16901,9 @@ fieldset:disabled .btn {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-xl-black-50-focus:focus {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .text-xl-black-50-active:active {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-xl-white-50 {
@@ -16649,6 +16915,9 @@ fieldset:disabled .btn {
   .text-xl-white-50-focus:focus {
     color: rgba(255, 255, 255, 0.5) !important;
   }
+  .text-xl-white-50-active:active {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
   .text-xl-reset {
     color: inherit !important;
   }
@@ -16656,6 +16925,9 @@ fieldset:disabled .btn {
     color: inherit !important;
   }
   .text-xl-reset-focus:focus {
+    color: inherit !important;
+  }
+  .text-xl-reset-active:active {
     color: inherit !important;
   }
 }
@@ -18020,6 +18292,9 @@ fieldset:disabled .btn {
   .text-xxl-primary-focus:focus {
     color: #3B7FCF !important;
   }
+  .text-xxl-primary-active:active {
+    color: #3B7FCF !important;
+  }
   .text-xxl-secondary {
     color: #F0F7FF !important;
   }
@@ -18027,6 +18302,9 @@ fieldset:disabled .btn {
     color: #F0F7FF !important;
   }
   .text-xxl-secondary-focus:focus {
+    color: #F0F7FF !important;
+  }
+  .text-xxl-secondary-active:active {
     color: #F0F7FF !important;
   }
   .text-xxl-success {
@@ -18038,6 +18316,9 @@ fieldset:disabled .btn {
   .text-xxl-success-focus:focus {
     color: #198754 !important;
   }
+  .text-xxl-success-active:active {
+    color: #198754 !important;
+  }
   .text-xxl-info {
     color: #0dcaf0 !important;
   }
@@ -18045,6 +18326,9 @@ fieldset:disabled .btn {
     color: #0dcaf0 !important;
   }
   .text-xxl-info-focus:focus {
+    color: #0dcaf0 !important;
+  }
+  .text-xxl-info-active:active {
     color: #0dcaf0 !important;
   }
   .text-xxl-warning {
@@ -18056,6 +18340,9 @@ fieldset:disabled .btn {
   .text-xxl-warning-focus:focus {
     color: #ffc107 !important;
   }
+  .text-xxl-warning-active:active {
+    color: #ffc107 !important;
+  }
   .text-xxl-danger {
     color: #dc3545 !important;
   }
@@ -18063,6 +18350,9 @@ fieldset:disabled .btn {
     color: #dc3545 !important;
   }
   .text-xxl-danger-focus:focus {
+    color: #dc3545 !important;
+  }
+  .text-xxl-danger-active:active {
     color: #dc3545 !important;
   }
   .text-xxl-light {
@@ -18074,6 +18364,9 @@ fieldset:disabled .btn {
   .text-xxl-light-focus:focus {
     color: #7E7E7E !important;
   }
+  .text-xxl-light-active:active {
+    color: #7E7E7E !important;
+  }
   .text-xxl-dark {
     color: #1E1E1E !important;
   }
@@ -18081,6 +18374,9 @@ fieldset:disabled .btn {
     color: #1E1E1E !important;
   }
   .text-xxl-dark-focus:focus {
+    color: #1E1E1E !important;
+  }
+  .text-xxl-dark-active:active {
     color: #1E1E1E !important;
   }
   .text-xxl-white {
@@ -18092,6 +18388,9 @@ fieldset:disabled .btn {
   .text-xxl-white-focus:focus {
     color: #fff !important;
   }
+  .text-xxl-white-active:active {
+    color: #fff !important;
+  }
   .text-xxl-body {
     color: #212529 !important;
   }
@@ -18099,6 +18398,9 @@ fieldset:disabled .btn {
     color: #212529 !important;
   }
   .text-xxl-body-focus:focus {
+    color: #212529 !important;
+  }
+  .text-xxl-body-active:active {
     color: #212529 !important;
   }
   .text-xxl-muted {
@@ -18110,6 +18412,9 @@ fieldset:disabled .btn {
   .text-xxl-muted-focus:focus {
     color: #6c757d !important;
   }
+  .text-xxl-muted-active:active {
+    color: #6c757d !important;
+  }
   .text-xxl-black-50 {
     color: rgba(0, 0, 0, 0.5) !important;
   }
@@ -18117,6 +18422,9 @@ fieldset:disabled .btn {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-xxl-black-50-focus:focus {
+    color: rgba(0, 0, 0, 0.5) !important;
+  }
+  .text-xxl-black-50-active:active {
     color: rgba(0, 0, 0, 0.5) !important;
   }
   .text-xxl-white-50 {
@@ -18128,6 +18436,9 @@ fieldset:disabled .btn {
   .text-xxl-white-50-focus:focus {
     color: rgba(255, 255, 255, 0.5) !important;
   }
+  .text-xxl-white-50-active:active {
+    color: rgba(255, 255, 255, 0.5) !important;
+  }
   .text-xxl-reset {
     color: inherit !important;
   }
@@ -18135,6 +18446,9 @@ fieldset:disabled .btn {
     color: inherit !important;
   }
   .text-xxl-reset-focus:focus {
+    color: inherit !important;
+  }
+  .text-xxl-reset-active:active {
     color: inherit !important;
   }
 }
