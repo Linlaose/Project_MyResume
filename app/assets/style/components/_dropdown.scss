@@ -1,0 +1,45 @@
+.template-class {
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 14px 16px;
+
+    width: 160px;
+    height: 48px;
+
+    border-radius: 16px;
+    &:focus {
+      background-color: #F0F7FF; // dropdown 按鈕背景色
+      box-shadow: 0 0 0 .125rem #3B7FCF; // 相當於 border
+    };
+    &:active {
+      background-color: #F0F7FF; // dropdown 按鈕背景色
+      box-shadow: 0 0 0 .125rem #3B7FCF; // 相當於 border
+    };
+    &::after{
+      margin: 0;
+
+      width: 24px;
+      height: 24px;
+
+      vertical-align: text-top; // svg 圖片與文字對齊
+      border: 0;
+      -webkit-mask: url('../images/arrow_down.svg'); // 為了配合 svg 圖片
+      mask: url('../images/arrow_down.svg'); // 為了配合 svg 圖片
+      -webkit-mask-size: cover; // 為了配合 svg 圖片
+      background-color: #7E7E7E; // 修改 svg 圖片顏色
+    };
+    &:hover {
+      &::after {
+        background-color: #3B7FCF; // 修改 svg hover 顏色
+      };
+    };
+    &:focus {
+      &::after{
+        background-color: #3B7FCF; // 修改 svg focus 顏色
+      }
+    };
+  };
+};
