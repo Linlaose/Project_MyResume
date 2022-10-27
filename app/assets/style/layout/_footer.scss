@@ -1,0 +1,26 @@
+.footer{
+  .footer__bg {
+    padding-top: 2px; // 相當於漸層色 border 寬度
+    background: linear-gradient(270deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%); // 外層背景色
+  };
+  .footer__text{
+    display: block; // 讓元素佔滿父層
+    padding-top: 10px; // 相當於跟漸層色 border 的距離
+
+    text-align: center; // 佔滿父層後使用文字置中
+    color: #BFBFBF;
+
+    background-color: #F0F7FF; // 內層背景色，利用外內背景色不同且搭配 padding 的方式做出漸層色 border 效果
+    @include screen-lg{
+      padding-top: 22px;
+    };
+  };
+  .footer__link {
+    &:hover {
+      transform: scale(1.1);
+    };
+    &:active {
+      transform: scale(1.1);
+    };
+  };
+};

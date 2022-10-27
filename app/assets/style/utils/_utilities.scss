@@ -525,6 +525,7 @@ $utilities: map-merge(
           "white-50": rgba($white, .5),
           "reset": inherit,
           "primary": $primary, // 已客製
+          "light": $light, // 已客製
         )
       )
     ),
