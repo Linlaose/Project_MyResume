@@ -389,7 +389,7 @@ $border-color:                $gray-300 !default;
 // scss-docs-end border-variables
 
 // scss-docs-start border-radius-variables
-$border-radius:               .25rem !default;
+$border-radius:               1rem;// .25rem !default; // 已客製
 $border-radius-sm:            .2rem !default;
 $border-radius-lg:            .3rem !default;
 $border-radius-pill:          50rem !default;
@@ -1021,7 +1021,7 @@ $dropdown-spacer:                   .125rem !default;
 $dropdown-font-size:                $font-size-base !default;
 $dropdown-color:                    $body-color !default;
 $dropdown-bg:                       $white !default;
-$dropdown-border-color:             rgba($black, .15) !default;
+$dropdown-border-color:             transparent;// rgba($black, .15) !default; // 已客製
 $dropdown-border-radius:            $border-radius !default;
 $dropdown-border-width:             $border-width !default;
 $dropdown-inner-border-radius:      subtract($dropdown-border-radius, $dropdown-border-width) !default;
