@@ -1,0 +1,11 @@
+.resume-shadow{// 帳號密碼區塊的陰影
+  box-shadow: 3px 5px 10px -3px #6c6b6b;
+};
+
+.resume-block {
+  width: 100%;
+  @include screen-lg {
+    width: 680px;
+    margin-left: 80px;
+  }
+};
