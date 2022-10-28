@@ -8415,6 +8415,10 @@ fieldset:disabled .btn {
   width: 4px !important;
 }
 
+.w-24px {
+  width: 24px !important;
+}
+
 .w-28px {
   width: 28px !important;
 }
@@ -10919,6 +10923,9 @@ fieldset:disabled .btn {
   .w-sm-4px {
     width: 4px !important;
   }
+  .w-sm-24px {
+    width: 24px !important;
+  }
   .w-sm-28px {
     width: 28px !important;
   }
@@ -12439,6 +12446,9 @@ fieldset:disabled .btn {
   }
   .w-md-4px {
     width: 4px !important;
+  }
+  .w-md-24px {
+    width: 24px !important;
   }
   .w-md-28px {
     width: 28px !important;
@@ -13961,6 +13971,9 @@ fieldset:disabled .btn {
   .w-lg-4px {
     width: 4px !important;
   }
+  .w-lg-24px {
+    width: 24px !important;
+  }
   .w-lg-28px {
     width: 28px !important;
   }
@@ -15482,6 +15495,9 @@ fieldset:disabled .btn {
   .w-xl-4px {
     width: 4px !important;
   }
+  .w-xl-24px {
+    width: 24px !important;
+  }
   .w-xl-28px {
     width: 28px !important;
   }
@@ -17002,6 +17018,9 @@ fieldset:disabled .btn {
   }
   .w-xxl-4px {
     width: 4px !important;
+  }
+  .w-xxl-24px {
+    width: 24px !important;
   }
   .w-xxl-28px {
     width: 28px !important;
@@ -18900,6 +18919,22 @@ img {
   background: -webkit-gradient(linear, left bottom, left top, from(#3B7FCF), to(#64ABFF));
   background: -o-linear-gradient(bottom, #3B7FCF 0%, #64ABFF 100%);
   background: linear-gradient(0deg, #3B7FCF 0%, #64ABFF 100%);
+}
+
+.resume-shadow {
+  -webkit-box-shadow: 3px 5px 10px -3px #6c6b6b;
+          box-shadow: 3px 5px 10px -3px #6c6b6b;
+}
+
+.resume-block {
+  width: 100%;
+}
+
+@media (min-width: 992px) {
+  .resume-block {
+    width: 680px;
+    margin-left: 80px;
+  }
 }
 
 /*# sourceMappingURL=all.css.map */

@@ -151,50 +151,77 @@
       </div>
       <div></div>
     </aside>
-    <div
-      class="ml-lg-20 mt-10 mt-lg-0 account-shadow w-lg-50 w-100 p-lg-10 p-4 rounded"
-    >
-      <div>
-        <h4 class="fs-4">帳號</h4>
-        <label class="mt-4 d-block text-light" for="account">Email</label>
-        <input
-          class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
-          type="email"
-          name="account"
-          id="account"
-          value="example@gmail.com"
-          disabled
-        />
-      </div>
-      <div class="mt-15">
-        <h4 class="fs-4">密碼</h4>
-        <label class="mt-4 d-block text-light" for="accountPassword"
-          >新密碼</label
-        >
-        <input
-          class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
-          type="password"
-          name="accountPassword"
-          id="accountPassword"
-          value=""
-        />
-        <label class="mt-4 d-block text-light" for="accountPasswordConfirm"
-          >新密碼確認</label
-        >
-        <input
-          class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
-          type="password"
-          name="accountPasswordConfirm"
-          id="accountPasswordConfirm"
-          value=""
-        />
-      </div>
-      <div class="text-end">
+    <div class="resume-block">
+      <div class="text-lg-end">
         <a
-          class="btn rounded-pill w-50 w-lg-25 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+          class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-lg-50 d-none d-lg-inline-block"
           href="./dashboard.html"
-          >更新</a
+          >新增我的履歷</a
         >
+      </div>
+      <div class="resume-shadow p-4 mt-4 mt-lg-8 rounded">
+        <h4>我的履歷 - 1</h4>
+        <div class="mt-4">
+          <a href="#">https://example.com</a>
+          <button
+            class="border-0 bg-transparent opacity-75-hover px-4"
+            type="button"
+          >
+            <img
+              class="w-24px d-inline-block"
+              src="./assets/images/copy.png"
+              alt="copy"
+              title="copy"
+            />
+          </button>
+          <div class="d-lg-flex align-items-center justify-content-between">
+            <div class="d-flex justify-content-between">
+              <div class="text-lg-end">
+                <!-- 編輯 -->
+                <a
+                  class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block"
+                  href="./editor.html"
+                  >編輯</a
+                >
+              </div>
+              <!-- 編輯 end -->
+              <div class="text-lg-end w-50 w-lg-auto">
+                <!-- 瀏覽 -->
+                <a
+                  class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto"
+                  href="./editor.html"
+                  >瀏覽</a
+                >
+              </div>
+              <!-- 瀏覽 end -->
+              <div class="text-lg-end w-50 w-lg-auto ml-4 ml-lg-0">
+                <!-- 下載 -->
+                <button
+                  class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto"
+                  type="button"
+                >
+                  下載 (PDF)
+                </button>
+              </div>
+              <!-- 下載 end -->
+            </div>
+            <div class="mt-4 mt-lg-8 text-end text-lg-start">
+              <!-- 垃圾桶 -->
+              <button
+                type="button"
+                class="border-0 bg-transparent opacity-75-hover px-4"
+              >
+                <img
+                  class="w-28px d-inline-block"
+                  src="./assets/images/bin.png"
+                  alt="bin"
+                  title="delete"
+                />
+              </button>
+            </div>
+            <!-- 垃圾桶 end -->
+          </div>
+        </div>
       </div>
     </div>
   </div>
