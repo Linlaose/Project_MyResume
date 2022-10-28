@@ -10640,6 +10640,22 @@ fieldset:disabled .btn {
   background-color: #FBFBFD !important;
 }
 
+.bg-brand4 {
+  background-color: #F0F7FF !important;
+}
+
+.bg-brand4-hover:hover {
+  background-color: #F0F7FF !important;
+}
+
+.bg-brand4-focus:focus {
+  background-color: #F0F7FF !important;
+}
+
+.bg-brand4-active:active {
+  background-color: #F0F7FF !important;
+}
+
 .bg-gradient {
   background-image: var(--bs-gradient) !important;
 }
@@ -18858,6 +18874,32 @@ img {
     border-top: 0;
     border-right: 2px solid rgba(251, 251, 253, 0.5);
   }
+}
+
+.personal-bg-image {
+  background-image: url("../images/Geometric Background.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.aside-divider {
+  border-top: 2px solid rgba(191, 191, 191, 0.3);
+}
+
+.account-shadow {
+  -webkit-box-shadow: 3px 5px 10px -3px #6c6b6b;
+          box-shadow: 3px 5px 10px -3px #6c6b6b;
+}
+
+.setting-input:focus-visible {
+  outline: 0;
+}
+
+.aside-border-gradient {
+  background: -webkit-gradient(linear, left bottom, left top, from(#3B7FCF), to(#64ABFF));
+  background: -o-linear-gradient(bottom, #3B7FCF 0%, #64ABFF 100%);
+  background: linear-gradient(0deg, #3B7FCF 0%, #64ABFF 100%);
 }
 
 /*# sourceMappingURL=all.css.map */

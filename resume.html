@@ -18,7 +18,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>MyResume | Login</title>
+    <title>MyResume | Dashboard</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -118,107 +118,85 @@
     </nav>
 
     
-<section class="bg-image py-10 py-lg-20">
-  <!-- <img src="./assets/images/bg_login.jpg" alt="" /> -->
+<section class="bg-gray">
   <div
-    class="bg-smoke container flex-column-reverse flex-lg-row d-flex justify-content-between"
+    class="container py-10 d-flex justify-content-center flex-lg-row flex-column"
   >
-    <div
-      class="w-100 w-lg-50 py-10 pr-2 divider my-3 d-flex flex-column justify-content-between"
-    >
-      <!-- 登入 -->
-      <div>
-        <!-- 登入 input -->
-        <div class="form-floating mb-3">
-          <input
-            type="email"
-            class="form-control form-input-custom text-white"
-            id="loginAccount"
-            placeholder="name@example.com"
-          />
-          <label class="text-white" for="loginAccount">請輸入帳號</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control form-input-custom text-white"
-            id="loginPassword"
-            placeholder="Password"
-          />
-          <label class="text-white" for="loginPassword">請輸入密碼</label>
-        </div>
-        <div class="ml-lg-4 mt-4 mt-lg-6">
-          <input type="checkbox" name="rememberMe" id="rememberMe" />
-          <label class="text-white" for="rememberMe">記住我</label>
+    <aside class="w-100 w-lg-25">
+      <div
+        class="personal-bg-image d-flex align-items-center justify-content-center py-6 rounded-top"
+      >
+        <div><img src="./assets/images/Avatar.png" alt="avatar" /></div>
+        <div class="ml-4">
+          <h4 class="fs-base fs-lg-4 text-white">Ryan-Tsai</h4>
         </div>
       </div>
-      <!-- 登入 input end -->
-      <div class="text-center">
-        <!-- 登入 button -->
+      <div class="bg-white">
+        <h4 class="text-center">
+          <a
+            class="fs-base fs-lg-4 text-decoration-none py-6 d-block text-light text-primary-hover bg-brand4-hover"
+            href="./account.html"
+            >我的帳戶</a
+          >
+        </h4>
+      </div>
+      <div class="bg-white">
+        <h4 class="text-center aside-border-gradient">
+          <a
+            class="fs-base fs-lg-4 text-decoration-none py-6 d-block text-light text-primary-hover bg-brand4-hover aside-divider bg-white ml-1"
+            href="#"
+            >我的履歷</a
+          >
+        </h4>
+      </div>
+      <div></div>
+    </aside>
+    <div
+      class="ml-lg-20 mt-10 mt-lg-0 account-shadow w-lg-50 w-100 p-lg-10 p-4 rounded"
+    >
+      <div>
+        <h4 class="fs-4">帳號</h4>
+        <label class="mt-4 d-block text-light" for="account">Email</label>
+        <input
+          class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
+          type="email"
+          name="account"
+          id="account"
+          value="example@gmail.com"
+          disabled
+        />
+      </div>
+      <div class="mt-15">
+        <h4 class="fs-4">密碼</h4>
+        <label class="mt-4 d-block text-light" for="accountPassword"
+          >新密碼</label
+        >
+        <input
+          class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
+          type="password"
+          name="accountPassword"
+          id="accountPassword"
+          value=""
+        />
+        <label class="mt-4 d-block text-light" for="accountPasswordConfirm"
+          >新密碼確認</label
+        >
+        <input
+          class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
+          type="password"
+          name="accountPasswordConfirm"
+          id="accountPasswordConfirm"
+          value=""
+        />
+      </div>
+      <div class="text-end">
         <a
-          class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
-          href="./account.html"
-          >登入</a
+          class="btn rounded-pill w-50 w-lg-25 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+          href="./dashboard.html"
+          >更新</a
         >
       </div>
-      <!-- 登入 button end -->
     </div>
-    <!-- 登入 end -->
-    <div
-      class="w-100 w-lg-50 py-10 pl-2 my-3 d-flex flex-column justify-content-between"
-    >
-      <!-- 註冊 -->
-      <div>
-        <!-- 註冊 input -->
-        <div class="form-floating mb-3">
-          <input
-            type="text"
-            class="form-control form-input-custom text-white"
-            id="registerName"
-            placeholder="name"
-          />
-          <label class="text-white" for="registerName">姓名</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="email"
-            class="form-control form-input-custom text-white"
-            id="registerAccount"
-            placeholder="name@example.com"
-          />
-          <label class="text-white" for="registerAccount">帳號</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control form-input-custom text-white"
-            id="registerPassword"
-            placeholder="Password"
-          />
-          <label class="text-white" for="registerPassword">密碼</label>
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control form-input-custom text-white"
-            id="passwordConfirm"
-            placeholder="Password"
-          />
-          <label class="text-white" for="passwordConfirm">密碼再次確認</label>
-        </div>
-      </div>
-      <!-- 註冊 input end -->
-      <div class="text-center">
-        <!-- 註冊 button  -->
-        <a
-          class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
-          href="#"
-          >註冊</a
-        >
-      </div>
-      <!-- 註冊 button end -->
-    </div>
-    <!-- 註冊 end -->
   </div>
 </section>
 
