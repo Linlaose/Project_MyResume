@@ -1,0 +1,24 @@
+.personal-bg-image { // 個人簡圖 背景圖片
+  background-image: url('../images/Geometric Background.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+};
+
+.aside-divider {
+  border-top: 2px solid rgba(191, 191, 191, .3);
+};
+
+.account-shadow { // 帳號密碼區塊的陰影
+  box-shadow: 3px 5px 10px -3px #6c6b6b;
+};
+
+.setting-input { // 取消 input 點擊樣式
+  &:focus-visible {
+    outline: 0;
+  };
+};
+
+.aside-border-gradient { // 製造 aside 按鈕的漸層框線
+  background: linear-gradient(0deg, #3B7FCF 0%, #64ABFF 100%);
+};
