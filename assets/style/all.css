@@ -18809,7 +18809,7 @@ img {
 }
 
 .bg-image {
-  background-image: url("../../../assets/images/bg_login.jpg");
+  background-image: url("../images/bg_login.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
