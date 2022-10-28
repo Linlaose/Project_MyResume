@@ -1,0 +1,110 @@
+---
+title: MyResume | Login
+layout: ./app/layout.ejs
+engine: ejs
+current: login
+---
+
+<section class="bg-image py-10 py-lg-20">
+  <!-- <img src="./assets/images/bg_login.jpg" alt="" /> -->
+  <div
+    class="bg-smoke container flex-column-reverse flex-lg-row d-flex justify-content-between"
+  >
+    <div
+      class="w-100 w-lg-50 py-10 pr-2 divider my-3 d-flex flex-column justify-content-between"
+    >
+      <!-- 登入 -->
+      <div>
+        <!-- 登入 input -->
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control form-input-custom text-white"
+            id="loginAccount"
+            placeholder="name@example.com"
+          />
+          <label class="text-white" for="loginAccount">請輸入帳號</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control form-input-custom text-white"
+            id="loginPassword"
+            placeholder="Password"
+          />
+          <label class="text-white" for="loginPassword">請輸入密碼</label>
+        </div>
+        <div class="ml-lg-4 mt-4 mt-lg-6">
+          <input type="checkbox" name="rememberMe" id="rememberMe" />
+          <label class="text-white" for="rememberMe">記住我</label>
+        </div>
+      </div>
+      <!-- 登入 input end -->
+      <div class="text-center">
+        <!-- 登入 button -->
+        <a
+          class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+          href="./editor.html"
+          >登入</a
+        >
+      </div>
+      <!-- 登入 button end -->
+    </div>
+    <!-- 登入 end -->
+    <div
+      class="w-100 w-lg-50 py-10 pl-2 my-3 d-flex flex-column justify-content-between"
+    >
+      <!-- 註冊 -->
+      <div>
+        <!-- 註冊 input -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control form-input-custom text-white"
+            id="registerName"
+            placeholder="name"
+          />
+          <label class="text-white" for="registerName">姓名</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="email"
+            class="form-control form-input-custom text-white"
+            id="registerAccount"
+            placeholder="name@example.com"
+          />
+          <label class="text-white" for="registerAccount">帳號</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control form-input-custom text-white"
+            id="registerPassword"
+            placeholder="Password"
+          />
+          <label class="text-white" for="registerPassword">密碼</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control form-input-custom text-white"
+            id="passwordConfirm"
+            placeholder="Password"
+          />
+          <label class="text-white" for="passwordConfirm">密碼再次確認</label>
+        </div>
+      </div>
+      <!-- 註冊 input end -->
+      <div class="text-center">
+        <!-- 註冊 button  -->
+        <a
+          class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+          href="#"
+          >註冊</a
+        >
+      </div>
+      <!-- 註冊 button end -->
+    </div>
+    <!-- 註冊 end -->
+  </div>
+</section>

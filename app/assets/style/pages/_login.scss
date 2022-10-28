@@ -1,0 +1,45 @@
+.bg-image { // section 背景圖片
+  // height: 605px;
+  background-image: url('../../../assets/images/bg_login.jpg');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+};
+
+.bg-smoke { // login 區塊背景色
+  width: 90%;
+  height: 100%;
+  border-radius: 16px;
+  background: rgba(31, 31, 31, 0.5);
+  // background: rgba(126, 126, 126, .7);
+  -webkit-box-shadow: 0 0 15px -3px #000000;
+  -moz-box-shadow: 0 0 15px -3px #000000;
+  box-shadow: 0 0 15px -3px #000000;
+  @include screen-lg {
+    width: auto;
+  }
+};
+
+.form-input-custom { // input 區塊樣式
+  border: 0;
+  border-radius: 0;
+  border-bottom: 2px solid rgba(251, 251, 253, .5);
+  &:focus {
+    box-shadow: none;
+    border-radius: 0;
+    border: 0;
+    border-color: transparent;
+    border-bottom: 2px solid rgba(251, 251, 253, .5);
+  };
+  &:focus-visible {
+    outline: 0;
+  };
+};
+
+.divider { // 分隔線
+  border-top: 2px solid rgba(251, 251, 253, .5);
+  @include screen-lg {
+    border-top: 0;
+    border-right: 2px solid rgba(251, 251, 253, .5);
+  };
+};
