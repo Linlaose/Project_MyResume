@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="./assets/images/logo@3x - tab_image.jpg" />
+    <meta name="description" content="當您餓的時候，會想起金艾甲" />
+
+    <meta property="og:title" content="MyResume" />
+    <meta property="og:description" content="為自己打造最好的履歷" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="FB上的網址" />
+    <meta property="og:image" content="FB的圖片" />
+
+    <link
+      href="./assets/images/logo@3x - tab_image.jpg"
+      rel="apple-touch-icon"
+    />
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>MyResume | Login</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="./assets/style/all.css" />
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light py-4">
+      <div class="container-fluid d-flex justify-content-bewteen">
+        <h1 class="m-0">
+          <a
+            class="navbar-brand mr-0 h1-image p-0"
+            title="MyResume"
+            href="./index.html"
+            >MyResume</a
+          >
+        </h1>
+        <button
+          class="burger border-0 bg-transparent px-2 py-3 d-lg-none"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#projectNavbar"
+          aria-controls="projectNavbar"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="bg-gradient burger__topline rounded-pill"></span>
+          <span class="bg-gradient burger__midline rounded-pill mt-1"></span>
+          <span class="bg-gradient burger__btmline rounded-pill mt-1"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-center burger-show"
+          id="projectNavbar"
+        >
+          <ul class="navbar-nav me-auto pt-6 p-lg-0 px-3">
+            <li class="nav-item">
+              <a
+                class="nav-link active p-4 bg-secondary-active rounded-16px text-primary-active text-lg-primary-hover fs-base fs-lg-5 lh-1"
+                aria-current="page"
+                href="#"
+                >首頁</a
+              >
+            </li>
+            <li class="nav-item ml-lg-12">
+              <a
+                class="nav-link active p-4 bg-secondary-active rounded-16px text-primary-active text-lg-primary-hover fs-base fs-lg-5 lh-1"
+                aria-current="page"
+                href="#"
+                >設計類</a
+              >
+            </li>
+            <li class="nav-item ml-lg-12">
+              <a
+                class="nav-link active p-4 bg-secondary-active rounded-16px text-primary-active text-lg-primary-hover fs-base fs-lg-5 lh-1"
+                aria-current="page"
+                href="#"
+                >工程類</a
+              >
+            </li>
+            <li class="nav-item ml-lg-12">
+              <a
+                class="nav-link active p-4 bg-secondary-active rounded-16px text-primary-active text-lg-primary-hover fs-base fs-lg-5 lh-1"
+                aria-current="page"
+                href="#"
+                >管理類</a
+              >
+            </li>
+          </ul>
+          <div>
+            <a
+              class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 lh-1 d-lg-none position-absolute bottom-24 left-12 right-12"
+              href="./login.html"
+              >登入/註冊</a
+            >
+          </div>
+        </div>
+        <div class="d-none d-lg-block">
+          <a
+            class="collapse navbar-collapse btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 transition-300"
+            href="./login.html"
+          >
+            登入/註冊
+          </a>
+        </div>
+      </div>
+    </nav>
+
+    
+<section class="bg-image py-10 py-lg-20">
+  <!-- <img src="./assets/images/bg_login.jpg" alt="" /> -->
+  <div
+    class="bg-smoke container flex-column-reverse flex-lg-row d-flex justify-content-between"
+  >
+    <div
+      class="w-100 w-lg-50 py-10 pr-2 divider my-3 d-flex flex-column justify-content-between"
+    >
+      <!-- 登入 -->
+      <div>
+        <!-- 登入 input -->
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control form-input-custom text-white"
+            id="loginAccount"
+            placeholder="name@example.com"
+          />
+          <label class="text-white" for="loginAccount">請輸入帳號</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control form-input-custom text-white"
+            id="loginPassword"
+            placeholder="Password"
+          />
+          <label class="text-white" for="loginPassword">請輸入密碼</label>
+        </div>
+        <div class="ml-lg-4 mt-4 mt-lg-6">
+          <input type="checkbox" name="rememberMe" id="rememberMe" />
+          <label class="text-white" for="rememberMe">記住我</label>
+        </div>
+      </div>
+      <!-- 登入 input end -->
+      <div class="text-center">
+        <!-- 登入 button -->
+        <a
+          class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+          href="./editor.html"
+          >登入</a
+        >
+      </div>
+      <!-- 登入 button end -->
+    </div>
+    <!-- 登入 end -->
+    <div
+      class="w-100 w-lg-50 py-10 pl-2 my-3 d-flex flex-column justify-content-between"
+    >
+      <!-- 註冊 -->
+      <div>
+        <!-- 註冊 input -->
+        <div class="form-floating mb-3">
+          <input
+            type="text"
+            class="form-control form-input-custom text-white"
+            id="registerName"
+            placeholder="name"
+          />
+          <label class="text-white" for="registerName">姓名</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="email"
+            class="form-control form-input-custom text-white"
+            id="registerAccount"
+            placeholder="name@example.com"
+          />
+          <label class="text-white" for="registerAccount">帳號</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control form-input-custom text-white"
+            id="registerPassword"
+            placeholder="Password"
+          />
+          <label class="text-white" for="registerPassword">密碼</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control form-input-custom text-white"
+            id="passwordConfirm"
+            placeholder="Password"
+          />
+          <label class="text-white" for="passwordConfirm">密碼再次確認</label>
+        </div>
+      </div>
+      <!-- 註冊 input end -->
+      <div class="text-center">
+        <!-- 註冊 button  -->
+        <a
+          class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+          href="#"
+          >註冊</a
+        >
+      </div>
+      <!-- 註冊 button end -->
+    </div>
+    <!-- 註冊 end -->
+  </div>
+</section>
+
+
+    <footer class="footer bg-secondary py-8 py-lg-12">
+      <div class="container d-flex flex-column justify-content-center">
+        <div class="text-center">
+          <img
+            class="d-inline-block"
+            src="./assets/images/logo.svg"
+            alt="logo"
+          />
+        </div>
+        <div class="d-flex justify-content-center mt-3 mt-lg-6">
+          <p class="m-0">
+            <span class="fs-base text-light">作者：RyanTsai </span>
+          </p>
+          <a
+            class="footer__link"
+            href="https://github.com/Linlaose"
+            title="Github"
+          >
+            <img
+              class="ml-4 ml-lg-6"
+              src="./assets/images/github.svg"
+              alt="github"
+            />
+          </a>
+          <a
+            class="footer__link"
+            href="https://www.linkedin.com/in/cheng-huan-tsai-635bb3241/"
+            title="Linkedin"
+          >
+            <img
+              class="ml-4 ml-lg-6"
+              src="./assets/images/linkedin.svg"
+              alt="linkedin"
+            />
+          </a>
+        </div>
+      </div>
+      <div class="mt-3 mt-lg-6 mx-3 mx-lg-0 footer__bg">
+        <small class="fs-base footer__text"
+          >資料、圖片皆參考網路資源作為 side project 練習之用</small
+        >
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="./assets/js/vendors.js"></script>
+    <script src="./assets/js/all.js"></script>
+  </body>
+</html>
