@@ -41,6 +41,17 @@
   }
 };
 
+.background-gradient-linear-active { // 三大類別頁的按鈕
+  color: #3B7FCF !important;
+  background: linear-gradient(135deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
+  transition: all .5s;
+
+  &:active {
+    color: #3B7FCF !important;
+    background: linear-gradient(135deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
+  };
+};
+
 // box-shadow
 .image-shadow {
   box-shadow: (0px 4px 20px rgba(0, 0, 0, 0.08));

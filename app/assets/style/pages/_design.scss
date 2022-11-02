@@ -1,0 +1,10 @@
+.search-input {
+  border: 1px solid #BFBFBF;
+  border-radius: 6px;
+  &::placeholder {
+    color: #7E7E7E;
+  };
+  &:focus-visible {
+    outline: 0;
+  };
+};

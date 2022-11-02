@@ -148,6 +148,8 @@ $utilities: map-merge(
 
         // 已客製
         4px: 4px,
+        8px: 8px,
+        16px: 16px,
         24px: 24px,
         28px: 28px,
         40px: 40px,
@@ -618,6 +620,13 @@ $utilities: map-merge(
         50: .5,
         75: .75,
         100: 1,
+      )
+    ),
+    "scale": (property: transform,
+      class: scale,
+      state: hover,
+      values: (
+        1: scale(1.05),
       )
     ),
     // scss-docs-end utils-visibility

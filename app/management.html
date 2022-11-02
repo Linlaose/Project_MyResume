@@ -1,0 +1,143 @@
+---
+title: MyResume | Management
+layout: ./app/layout.ejs
+engine: ejs
+current: management
+---
+
+<section class="bg-gray py-lg-20 py-10">
+  <div
+    class="container d-flex d-lg-block justify-content-center justify-content-md-between align-items-center flex-wrap"
+  >
+    <div class="d-flex justify-content-between align-items-center">
+      <div class="position-relative d-inline-block">
+        <!-- search -->
+        <input
+          class="pl-4 search-input"
+          type="text"
+          value=""
+          placeholder="請輸入履歷類別"
+        />
+        <button
+          class="position-absolute top-50 translate-middle-y border-0 bg-transparent right-8"
+          type="button"
+        >
+          <img
+            class="w-16px"
+            src="./assets/images/search.png"
+            alt="search"
+            title="search"
+          />
+        </button>
+      </div>
+      <!-- search end -->
+      <div class="d-lg-flex d-none">
+        <!-- button group -->
+        <div class="text-center">
+          <!-- 設計類 button -->
+          <a
+            class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+            href="./design.html"
+            >設計類</a
+          >
+        </div>
+        <!-- 設計類 button end -->
+        <div class="text-center ml-4">
+          <!-- 工程類 button -->
+          <a
+            class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+            href="./engineering.html"
+            >工程類</a
+          >
+        </div>
+        <!-- 工程類 button end -->
+        <div class="text-center ml-4">
+          <!-- 管理類 button -->
+          <a
+            class="btn rounded-pill background-gradient-linear-active text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
+            href="#"
+            >管理類</a
+          >
+        </div>
+        <!-- 管理類 button end -->
+      </div>
+      <!-- button group end -->
+    </div>
+    <div
+      class="dropdown template-class mt-4 mt-md-0 mt-lg-6 d-flex justify-content-center"
+    >
+      <!-- dropdown -->
+      <button
+        class="btn btn-secondary dropdown-toggle d-flex justify-content-between"
+        type="button"
+        id="dropdownMenuButton1"
+        data-bs-toggle="dropdown"
+        aria-expanded="false"
+      >
+        設計類
+      </button>
+      <ul
+        class="dropdown-menu mt-2 dropdown-shadow border-transparent"
+        aria-labelledby="dropdownMenuButton1"
+      >
+        <li><a class="dropdown-item py-3 px-6" href="#">設計類</a></li>
+        <li><a class="dropdown-item py-3 px-6" href="#">管理類</a></li>
+        <li><a class="dropdown-item py-3 px-6" href="#">工程類</a></li>
+      </ul>
+    </div>
+    <!-- dropdown end -->
+  </div>
+  <div class="container">
+    <ul class="d-md-flex justify-content-between flex-wrap mt-6">
+      <!-- 模板展示 -->
+      <li>
+        <a href="#"
+          ><img
+            class="scale-1-hover transition-300"
+            src="./assets/images/Resume01.png"
+            alt="resume1"
+        /></a>
+      </li>
+      <li>
+        <a href="#"
+          ><img
+            class="scale-1-hover transition-300"
+            src="./assets/images/Resume02.png"
+            alt="resume2"
+        /></a>
+      </li>
+      <li>
+        <a href="#"
+          ><img
+            class="scale-1-hover transition-300"
+            src="./assets/images/Resume03.png"
+            alt="resume3"
+        /></a>
+      </li>
+    </ul>
+    <!-- 模板展示 end -->
+    <nav class="mt-6" aria-label="Search result page">
+      <!-- pagination -->
+      <ul class="pagination d-flex justify-content-center">
+        <li class="page-item disabled">
+          <a class="page-link pagination__page-link pagination__page-pending"
+            >Previous</a
+          >
+        </li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <a class="page-link pagination__page-link" href="#">2</a>
+        </li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item">
+          <a
+            class="page-link pagination__page-link pagination__page-pending"
+            href="#"
+            >Next</a
+          >
+        </li>
+      </ul>
+    </nav>
+    <!-- pagination end -->
+  </div>
+</section>
