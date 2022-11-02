@@ -109,6 +109,7 @@ $utilities: map-merge(
     ),
     "border-bottom": (
       property: border-bottom,
+      class: border-b, // 已客製
       values: (
         null: $border-width solid $border-color,
         0: 0,
@@ -140,9 +141,13 @@ $utilities: map-merge(
       responsive: true, // 已客製
       class: w,
       values: (
+        10: 10%, // 已客製
+        12: 12%, // 已客製
+        16: 16%, // 已客製
         25: 25%,
         50: 50%,
         75: 75%,
+        80: 80%,
         100: 100%,
         auto: auto,
 
@@ -182,6 +187,7 @@ $utilities: map-merge(
 
         // 已客製
         4px: 4px,
+        24px: 24px,
         28px: 28px,
         40px: 40px,
       )
@@ -614,6 +620,7 @@ $utilities: map-merge(
     "opacity": (property: opacity,
       class: opacity,
       state: hover focus, // 已客製
+      responsive: true, // 已客製
       values: (
         0: 0,
         25: .25,

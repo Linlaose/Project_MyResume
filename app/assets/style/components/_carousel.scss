@@ -71,3 +71,140 @@
 };
 
 
+// 管理頁面履歷類別頁
+.headerSwiper {
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: all .5s;
+    };
+  };
+
+  .swiper-pagination {
+    position: static;
+    text-align: center;
+  };
+
+  .swiper-pagination-bullet {
+    background-color: #C0DDFF;
+    opacity: 100;
+  };
+
+  .swiper-pagination-bullet-active {
+    background-color: #3B7FCF;
+  };
+};
+.contentSwiper {
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    };
+  };
+
+  .swiper-pagination {
+    position: static;
+    text-align: center;
+  };
+
+  .swiper-pagination-bullet {
+    background-color: #C0DDFF;
+    opacity: 100;
+  };
+
+  .swiper-pagination-bullet-active {
+    background-color: #3B7FCF;
+  };
+};
+.footerSwiper {
+  width: 100%;
+  height: 100%;
+
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    };
+  };
+
+  .swiper-pagination {
+    position: static;
+    text-align: center;
+  };
+
+  .swiper-pagination-bullet {
+    background-color: #C0DDFF;
+    opacity: 100;
+  };
+
+  .swiper-pagination-bullet-active {
+    background-color: #3B7FCF;
+  };
+};

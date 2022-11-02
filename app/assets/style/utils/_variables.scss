@@ -284,6 +284,7 @@ $position-values: (
   0: 0,
   8: 8px, // 已客製
   12: 12px, // 已客製
+  16: 16px, // 已客製
   24: 24px, // 已客製
   50: 50%,
   85: 85%, // 已客製
@@ -1133,7 +1134,7 @@ $accordion-color:                         $body-color !default;
 $accordion-bg:                            $body-bg !default;
 $accordion-border-width:                  $border-width !default;
 $accordion-border-color:                  rgba($black, .125) !default;
-$accordion-border-radius:                 $border-radius !default;
+$accordion-border-radius:                 0; //$border-radius !default; // 已客製
 $accordion-inner-border-radius:           subtract($accordion-border-radius, $accordion-border-width) !default;
 
 $accordion-body-padding-y:                $accordion-padding-y !default;
