@@ -101,4 +101,33 @@ var footerSwiper = new Swiper(".footerSwiper", {
     prevEl: '.swiper-button-prev'
   }
 });
+"use strict";
+
+var candidateDOM = document.querySelector(".candidate");
+var productBacklogDOM = document.querySelector(".productBacklog");
+var candidate = Sortable.create(candidateDOM, {
+  group: "shared",
+  animation: 500 // onEnd: (event) => {
+  //   console.log(event.to);
+  //   console.log(event.from);
+  //   console.log(event.oldIndex);
+  //   console.log(event.newIndex);
+  // }
+
+});
+var productBacklog = Sortable.create(productBacklogDOM, {
+  group: "shared",
+  onChange: function onChange(e) {
+    var order = productBacklog.toArray(); // 取得 dataset
+
+    console.log(order);
+  }
+});
+"use strict";
+
+tinymce.init({
+  selector: '#tinyText',
+  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
+  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|'
+});
 //# sourceMappingURL=all.js.map

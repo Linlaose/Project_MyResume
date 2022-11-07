@@ -18,7 +18,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>MyResume | It's your time to shine</title>
+    <title>MyResume | Make your resume</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -118,151 +118,38 @@
     </nav>
 
     
-<section class="container text-center">
-  <!-- 為自己找份好工作 -->
-  <h2 class="mt-10 mt-lg-20 fs-4 fs-lg-1 fw-bold">為自己找份好工作</h2>
-  <h3 class="mt-2 mt-lg-6 fs-base fs-lg-3 text-light">
-    工欲善其事，必先利其器
-  </h3>
-  <a
-    class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-6 mt-lg-10"
-    href="./editor.html"
-    >製作履歷</a
-  >
-  <div class="d-flex justify-content-center">
-    <img
-      class="mt-6 mt-lg-10 image-shadow rounded-16px"
-      src="./assets/images/製作履歷示意圖-copy.jpg"
-      alt="製作履歷示意圖"
-    />
-  </div>
-</section>
-<!-- 為自己找份好工作 end -->
-
-<section class="text-center bg-gray mt-10 mt-lg-20 py-10 py-lg-20">
-  <!-- 快速製作屬於自己的履歷 -->
-  <h2 class="fs-4 fs-lg-1 fw-bold">快速製作屬於自己的求職履歷</h2>
-
-  <div class="d-flex justify-content-center container">
-    <video
-      class="mt-6 mt-lg-10 w-100 rounded-16px"
-      src="./assets/images/bandicam.mp4"
-      poster="./assets/images/製作履歷示意圖.png"
-      autoplay
-      preload="auto"
-      loop
-      muted
-      playsinline
-    ></video>
-    <!-- video 標籤在 ios 行動裝置上，想要 autoplay 必須同時具備 muted、playsinline -->
-  </div>
-  <div>
-    <a
-      class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-6 mt-lg-10"
-      href="./editor.html"
-      >製作履歷</a
-    >
-  </div>
-</section>
-<!-- 快速製作屬於自己的履歷 end -->
-
-<section class="container my-10 my-lg-20">
-  <!-- 不同類別的風格模板 -->
-  <div
-    class="d-flex justify-content-center justify-content-md-between align-items-center flex-wrap"
-  >
-    <h2 class="fs-4 fs-lg-1 fw-bold">不同類別的風格模板</h2>
-    <div class="dropdown template-class mt-6 mt-md-0">
-      <button
-        class="btn btn-secondary dropdown-toggle d-flex justify-content-between"
-        type="button"
-        id="dropdownMenuButton1"
-        data-bs-toggle="dropdown"
-        aria-expanded="false"
-      >
-        設計類
-      </button>
-      <ul
-        class="dropdown-menu mt-2 dropdown-shadow border-transparent"
-        aria-labelledby="dropdownMenuButton1"
-      >
-        <li><a class="dropdown-item py-3 px-6" href="#">設計類</a></li>
-        <li><a class="dropdown-item py-3 px-6" href="#">管理類</a></li>
-        <li><a class="dropdown-item py-3 px-6" href="#">工程類</a></li>
-      </ul>
+<section>
+  <div class="container d-lg-flex">
+    <div class="productBacklog w-100">
+      <!-- //實現放置的區塊 -->
+      <form class="d-flex flex-column align-items-end editor-form" action>
+        <textarea id="tinyText">
+            Welcome to TinyMCE!
+          </textarea
+        >
+        <input
+          class="btn background-gradient-linear text-white py-3 px-6 fs-base editor__form-btn"
+          type="submit"
+          value="送出"
+        />
+      </form>
     </div>
-  </div>
-  <div class="position-relative">
-    <div class="swiper resumeSwiper mt-lg-10 mt-6">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div>
-            <img src="./assets/images/Resume01@3x.png" alt="resume01" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div>
-            <img src="./assets/images/Resume02@3x.png" alt="resume02" />
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div>
-            <img src="./assets/images/Resume03@3x.png" alt="resume03" />
-          </div>
-        </div>
-      </div>
-      <div class="swiper-pagination mt-lg-10 mt-6"></div>
-    </div>
-    <div class="swiper-button-prev"></div>
-    <div class="swiper-button-next"></div>
-  </div>
-</section>
-<!-- 不同類別的風格模板 end -->
+    <div class="candidate w-lg-25 ml-lg-10 mt-37 mt-lg-0">
+      <!-- 實現放置的區塊 -->
 
-<section class="bg-gray py-10 py-lg-20">
-  <!-- 下載完全免費 -->
-  <div class="container">
-    <div class="d-lg-flex justify-content-center text-center text-lg-start">
-      <div class="mr-lg-12 d-flex justify-content-center">
-        <img src="./assets/images/Illustration01.png" alt="download" />
-      </div>
-      <div class="d-lg-flex flex-column justify-content-center">
-        <h2 class="mt-3 mt-lg-0 fs-4 fs-lg-1 fw-bold">下載完全免費</h2>
-        <h3 class="mt-2 mt-lg-6 fs-base fs-lg-3 text-light">
-          將辛苦完成的履歷下載為己用！
-        </h3>
-        <div>
-          <a
-            class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-3 mt-lg-10"
-            href="./editor.html"
-            >製作履歷</a
-          >
-        </div>
-      </div>
-    </div>
-    <div
-      class="d-lg-flex justify-content-center flex-row-reverse text-center text-lg-start mt-6 mt-lg-16"
-    >
-      <div class="ml-lg-12 d-flex justify-content-center">
-        <img src="./assets/images/Illustration02.png" alt="download" />
-      </div>
-      <div class="d-lg-flex flex-column justify-content-center text-lg-end">
-        <h2 class="mt-3 mt-lg-0 fs-4 fs-lg-1 fw-bold">各式各樣的拖拉模板</h2>
-        <h3 class="mt-2 mt-lg-6 fs-base fs-lg-3 text-light">
-          提供各種模板，讓你的靈感不再缺乏！
-        </h3>
-        <div>
-          <a
-            class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-3 mt-lg-10"
-            href="./editor.html"
-            >製作履歷</a
-          >
-        </div>
-      </div>
+      <img src="./assets/images/bg_login.jpg" alt="" />
+      <p class="draggble" draggable="true">會員系統(登入、註冊、權限管理)</p>
+      <!-- //加入 draggable="true" 來實現拖曳 -->
+      <p class="draggble" draggable="true">應徵者的線上履歷編輯器</p>
+      <p class="draggble" draggable="true">
+        前台職缺列表(職缺詳細內容、點選可發送應徵意願)
+      </p>
+      <p class="draggble" draggable="true">
+        後台職缺管理功能(資訊上下架、顯示應徵者資料)
+      </p>
     </div>
   </div>
 </section>
-<!-- 下載完全免費 end -->
 
 
     <footer class="footer bg-secondary py-8 py-lg-12">
