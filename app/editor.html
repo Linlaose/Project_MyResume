@@ -1,0 +1,39 @@
+---
+title: MyResume | Make your resume
+layout: ./app/layout.ejs
+engine: ejs
+current: editor
+---
+
+<section>
+  <div class="container d-lg-flex">
+    <div class="productBacklog w-100">
+      <!-- //實現放置的區塊 -->
+      <form class="d-flex flex-column align-items-end editor-form" action>
+        <textarea id="tinyText">
+            Welcome to TinyMCE!
+          </textarea
+        >
+        <input
+          class="btn background-gradient-linear text-white py-3 px-6 fs-base editor__form-btn"
+          type="submit"
+          value="送出"
+        />
+      </form>
+    </div>
+    <div class="candidate w-lg-25 ml-lg-10 mt-37 mt-lg-0">
+      <!-- 實現放置的區塊 -->
+
+      <img src="./assets/images/bg_login.jpg" alt="" />
+      <p class="draggble" draggable="true">會員系統(登入、註冊、權限管理)</p>
+      <!-- //加入 draggable="true" 來實現拖曳 -->
+      <p class="draggble" draggable="true">應徵者的線上履歷編輯器</p>
+      <p class="draggble" draggable="true">
+        前台職缺列表(職缺詳細內容、點選可發送應徵意願)
+      </p>
+      <p class="draggble" draggable="true">
+        後台職缺管理功能(資訊上下架、顯示應徵者資料)
+      </p>
+    </div>
+  </div>
+</section>

@@ -61,6 +61,24 @@
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
 };
 
+// Editor-TinyMCE
+.editor-form {
+  .editor__form-btn {
+    z-index: -1;
+    transform: translateY(-50px);
+  }
+  &:hover{
+    .editor__form-btn {
+      z-index: auto;
+      border-radius: 0;
+      transform: translateY(0);
+    }
+  }
+}
+[role=application] {
+  width: 100%;
+};
+
 // 圖片取代文字
 .h1-image {
   display: block;
