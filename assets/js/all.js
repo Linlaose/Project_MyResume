@@ -103,14 +103,6 @@ var footerSwiper = new Swiper(".footerSwiper", {
 });
 "use strict";
 
-function getData() {
-  var apiUrl = "http://localhost:3000/users";
-  axios.get(apiUrl).then(function (res) {
-    console.log(res);
-  });
-} // getData();
-
-
 function signUp() {
   var apiUrl = "http://localhost:3000/register";
   var obj = {
@@ -118,23 +110,18 @@ function signUp() {
     "password": "bestPassw0rd"
   };
   axios.post(apiUrl, obj).then(function (res) {
-    console.log(res.data.accessToken);
+    console.log(res.data);
   });
 }
 
 function login() {
-  var apiUrl = "http://localhost:3000/600/users/1";
-  var config = {
-    headers: {
-      Authorization: "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Im9saXZpZXJAbWFpbC5jb20iLCJpYXQiOjE2NjgwOTY0NzMsImV4cCI6MTY2ODEwMDA3Mywic3ViIjoiMSJ9.mhRI2PvquZr_D718yyTwOwhR5WKL3gjoTkrd6jOVXEQ"
-    }
-  };
+  var apiUrl = "http://localhost:3000/login";
   var data = {
     "email": "olivier@mail.com",
     "password": "bestPassw0rd"
   };
-  axios.post(apiUrl, data, config).then(function (res) {
-    console.log(res.data.user, "\u72C0\u614B\u78BC ".concat(res.status));
+  axios.post(apiUrl, data).then(function (res) {
+    console.log(res.data, "\u72C0\u614B\u78BC ".concat(res.status));
   })["catch"](function (err) {
     console.log(err);
   });
