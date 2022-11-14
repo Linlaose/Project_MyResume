@@ -13,9 +13,11 @@ current: account
       <div
         class="personal-bg-image d-flex align-items-center justify-content-center py-6 rounded-top"
       >
-        <div><img src="./assets/images/Avatar.png" alt="avatar" /></div>
+        <div>
+          <img data-userImg src="./assets/images/Avatar.png" alt="avatar" />
+        </div>
         <div class="ml-4">
-          <h4 class="fs-base fs-lg-4 text-white">Ryan-Tsai</h4>
+          <h4 data-userName class="fs-base fs-lg-4 text-white">Ryan-Tsai</h4>
         </div>
       </div>
       <div class="bg-white">
@@ -45,6 +47,7 @@ current: account
         <h4 class="fs-4">帳號</h4>
         <label class="mt-4 d-block text-light" for="account">Email</label>
         <input
+          data-myAccount
           class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
           type="email"
           name="account"
@@ -59,6 +62,7 @@ current: account
           >新密碼</label
         >
         <input
+          data-newPassword
           class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
           type="password"
           name="accountPassword"
@@ -69,6 +73,7 @@ current: account
           >新密碼確認</label
         >
         <input
+          data-newPasswordConfirm
           class="mt-2 w-100 border-0 border-bottom pl-3 bg-transparent setting-input text-light"
           type="password"
           name="accountPasswordConfirm"

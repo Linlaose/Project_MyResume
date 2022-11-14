@@ -14,10 +14,11 @@ current: login
       class="w-100 w-lg-50 py-10 pr-2 divider my-3 d-flex flex-column justify-content-between"
     >
       <!-- 登入 -->
-      <div>
+      <form data-loginForm>
         <!-- 登入 input -->
         <div class="form-floating mb-3">
           <input
+            data-loginAccount
             type="email"
             class="form-control form-input-custom text-white"
             id="loginAccount"
@@ -27,6 +28,7 @@ current: login
         </div>
         <div class="form-floating">
           <input
+            data-loginPassword
             type="password"
             class="form-control form-input-custom text-white"
             id="loginPassword"
@@ -38,11 +40,12 @@ current: login
           <input type="checkbox" name="rememberMe" id="rememberMe" />
           <label class="text-white" for="rememberMe">記住我</label>
         </div>
-      </div>
+      </form>
       <!-- 登入 input end -->
       <div class="text-center">
         <!-- 登入 button -->
         <a
+          role="loginBtn"
           class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
           href="./account.html"
           >登入</a
@@ -55,10 +58,11 @@ current: login
       class="w-100 w-lg-50 py-10 pl-2 my-3 d-flex flex-column justify-content-between"
     >
       <!-- 註冊 -->
-      <div>
+      <form data-signUpForm>
         <!-- 註冊 input -->
         <div class="form-floating mb-3">
           <input
+            data-signUpName
             type="text"
             class="form-control form-input-custom text-white"
             id="registerName"
@@ -68,6 +72,7 @@ current: login
         </div>
         <div class="form-floating">
           <input
+            data-signUpAccount
             type="email"
             class="form-control form-input-custom text-white"
             id="registerAccount"
@@ -77,6 +82,7 @@ current: login
         </div>
         <div class="form-floating">
           <input
+            data-signUpPassword
             type="password"
             class="form-control form-input-custom text-white"
             id="registerPassword"
@@ -86,6 +92,7 @@ current: login
         </div>
         <div class="form-floating">
           <input
+            data-signUpPasswordConfirm
             type="password"
             class="form-control form-input-custom text-white"
             id="passwordConfirm"
@@ -93,11 +100,12 @@ current: login
           />
           <label class="text-white" for="passwordConfirm">密碼再次確認</label>
         </div>
-      </div>
+      </form>
       <!-- 註冊 input end -->
       <div class="text-center">
         <!-- 註冊 button  -->
         <a
+          role="signUpBtn"
           class="btn rounded-pill w-100 w-lg-50 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
           href="#"
           >註冊</a
