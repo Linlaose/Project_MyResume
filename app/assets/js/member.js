@@ -55,14 +55,11 @@ function login(account, password) {
 
   axios.post(apiUrl, data)
     .then((res) => {
-      alert("請求成功");
       localStorage.setItem("email", JSON.stringify(res.data.user.email));
       localStorage.setItem("userName", JSON.stringify(res.data.user.name));
       localStorage.setItem("userId", JSON.stringify(res.data.user.id));
       localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-      alert("localStorage 儲存完畢");
       window.location.href = "account.html";
-      alert("登入完成");
     }).catch((err) => {
       alert(err.response.data);
     })
