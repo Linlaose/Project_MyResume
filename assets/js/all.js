@@ -1,5 +1,21 @@
 "use strict";
 
+var myAccount = document.querySelector("[data-myAccount]");
+var newPassword = document.querySelector("[data-newPassword]");
+var newPasswordConfirm = document.querySelector("[data-newPasswordConfirm]");
+var userName = document.querySelector("[data-userName]");
+var myResume = document.querySelector("[data-myResume]");
+
+if (myAccount) {
+  myAccount.value = JSON.parse(localStorage.getItem("email"));
+  userName.innerText = JSON.parse(localStorage.getItem("userName"));
+}
+
+if (myResume) {
+  userName.innerText = JSON.parse(localStorage.getItem("userName"));
+}
+"use strict";
+
 $(function () {
   console.log('Hello Bootstrap5');
 }); // burger
@@ -103,32 +119,120 @@ var footerSwiper = new Swiper(".footerSwiper", {
 });
 "use strict";
 
-function signUp() {
-  var apiUrl = "http://localhost:3000/register";
-  var obj = {
-    "email": "olivier@mail.com",
-    "password": "bestPassw0rd"
-  };
-  axios.post(apiUrl, obj).then(function (res) {
-    console.log(res.data);
-  });
-}
+tinymce.init({
+  selector: '#tinyText',
+  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
+  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|'
+});
+var tiny = document.querySelector('#tinymce');
+var editor = document.querySelector('[data-editor]');
 
-function login() {
-  var apiUrl = "http://localhost:3000/login";
+function saveResume() {
+  var userId = localStorage.getItem("userId");
+  var template = tinymce.activeEditor.getContent("tinyText"); // 獲取 editor 內容
+
+  var token = JSON.parse(localStorage.getItem("token"));
+  var apiUrl = "http://localhost:3000/600/users/".concat(userId, "/resumes");
   var data = {
-    "email": "olivier@mail.com",
-    "password": "bestPassw0rd"
+    "userId": "".concat(userId),
+    "template": "".concat(template)
   };
-  axios.post(apiUrl, data).then(function (res) {
-    console.log(res.data, "\u72C0\u614B\u78BC ".concat(res.status));
+  var config = {
+    headers: {
+      "Authorization": "Bearer ".concat(token)
+    }
+  };
+  axios.post(apiUrl, data, config).then(function (res) {
+    console.log(res);
   })["catch"](function (err) {
     console.log(err);
   });
-} // signUp();
+}
 
+if (tiny) {
+  editor.addEventListener('submit', function (e) {
+    e.preventDefault();
+    saveResume();
+    tinymce.activeEditor.setContent("<p>Hello world!</p>"); // 設定 editor 內容
+  });
+}
+"use strict";
 
-login();
+var loginBtn = document.querySelector("[role=loginBtn]");
+var signUpBtn = document.querySelector("[role=signUpBtn]");
+
+if (loginBtn) {
+  loginBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    var loginForm = document.querySelector("[data-loginForm]");
+    var loginAccount = document.querySelector("[data-loginAccount]");
+    var loginPassword = document.querySelector("[data-loginPassword]");
+    login(loginAccount.value, loginPassword.value);
+    loginForm.reset();
+  });
+  signUpBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    var signUpForm = document.querySelector("[data-signUpForm]");
+    var signUpName = document.querySelector("[data-signUpName]");
+    var signUpAccount = document.querySelector("[data-signUpAccount]");
+    var signUpPassword = document.querySelector("[data-signUpPassword]");
+    var signUpPasswordConfirm = document.querySelector("[data-signUpPasswordConfirm]");
+
+    if (signUpPassword.value === signUpPasswordConfirm.value) {
+      signUp(signUpName.value, signUpAccount.value, signUpPassword.value, signUpPasswordConfirm.value);
+      signUpForm.reset();
+    } else {
+      alert("請確認註冊密碼");
+    }
+  });
+}
+
+function signUp(name, account, password, passwordConfirm) {
+  var apiUrl = "http://localhost:3000/register";
+  var obj = {
+    // "email": "a123@mail.com",
+    // "password": "1qaz2wsx",
+    // "name": "Ryan"
+    "email": account,
+    "password": password,
+    "passwordConfirm": passwordConfirm,
+    "name": name
+  };
+  axios.post(apiUrl, obj).then(function (res) {
+    console.log(res);
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+
+;
+
+function login(account, password) {
+  var apiUrl = "http://localhost:3000/login";
+  var data = {
+    // "email": "a123@mail.com",
+    // "password": "1qaz2wsx"
+    "email": account,
+    "password": password
+  };
+  axios.post(apiUrl, data).then(function (res) {
+    localStorage.setItem("email", JSON.stringify(res.data.user.email));
+    localStorage.setItem("userName", JSON.stringify(res.data.user.name));
+    localStorage.setItem("userId", JSON.stringify(res.data.user.id));
+    localStorage.setItem("token", JSON.stringify(res.data.accessToken));
+    window.location.href = "account.html";
+  })["catch"](function (err) {
+    console.log(err.response.data);
+  });
+}
+
+;
+
+function logout() {
+  window.localStorage.clear();
+}
+
+;
 "use strict";
 
 var candidateDOM = document.querySelector(".candidate");
@@ -150,20 +254,5 @@ var productBacklog = Sortable.create(productBacklogDOM, {
 
     console.log(order);
   }
-});
-"use strict";
-
-tinymce.init({
-  selector: '#tinyText',
-  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
-  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|'
-});
-var tiny = document.querySelector('#tinymce');
-var editor = document.querySelector('[data-editor]');
-editor.addEventListener('submit', function (e) {
-  e.preventDefault();
-  tinymce.activeEditor.setContent("<p>Hello world!</p>"); // 設定 editor 內容
-
-  console.log(tinymce.activeEditor.getContent("tinyText")); // 獲取 editor 內容
 });
 //# sourceMappingURL=all.js.map
