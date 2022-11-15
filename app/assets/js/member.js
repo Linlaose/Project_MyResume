@@ -22,16 +22,16 @@ if (loginBtn) {
       signUp(signUpName.value, signUpAccount.value, signUpPassword.value, signUpPasswordConfirm.value);
       signUpForm.reset();
     } else {
-      alert("請確認註冊密碼");
+      Swal.fire({
+        icon: "error",
+        title: "請確認二次密碼輸入正確"
+      })
     }
   });
 }
 function signUp(name, account, password, passwordConfirm) {
   const apiUrl = "http://localhost:3000/register";
   const obj = {
-    // "email": "a123@mail.com",
-    // "password": "1qaz2wsx",
-    // "name": "Ryan"
     "email": account,
     "password": password,
     "passwordConfirm": passwordConfirm,
@@ -39,16 +39,20 @@ function signUp(name, account, password, passwordConfirm) {
   };
   axios.post(apiUrl, obj)
     .then((res) => {
-      console.log(res);
+      Swal.fire({
+        icon: "success",
+        title: '註冊成功'
+      })
     }).catch((err) => {
-      console.log(err);
+      Swal.fire({
+        icon: "error",
+        title: `${err.response.data}`
+      })
     })
 };
 function login(account, password) {
   const apiUrl = "http://localhost:3000/login";
   const data = {
-    // "email": "a123@mail.com",
-    // "password": "1qaz2wsx"
     "email": account,
     "password": password
   };
@@ -59,7 +63,15 @@ function login(account, password) {
       localStorage.setItem("userName", JSON.stringify(res.data.user.name));
       localStorage.setItem("userId", JSON.stringify(res.data.user.id));
       localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-      window.location.href = "account.html";
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '登入成功',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        window.location.href = "account.html";
+      })
     }).catch((err) => {
       alert(err.response.data);
     })
