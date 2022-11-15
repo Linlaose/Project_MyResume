@@ -124,7 +124,6 @@ tinymce.init({
   plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
   toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|'
 });
-var tiny = document.querySelector('#tinymce');
 var editor = document.querySelector('[data-editor]');
 
 function saveResume() {
@@ -133,9 +132,11 @@ function saveResume() {
 
   var token = JSON.parse(localStorage.getItem("token"));
   var apiUrl = "http://localhost:3000/600/users/".concat(userId, "/resumes");
+  var name = JSON.parse(localStorage.getItem("resumeName"));
   var data = {
     "userId": "".concat(userId),
-    "template": "".concat(template)
+    "template": "".concat(template),
+    "name": "".concat(name)
   };
   var config = {
     headers: {
@@ -143,19 +144,50 @@ function saveResume() {
     }
   };
   axios.post(apiUrl, data, config).then(function (res) {
-    console.log(res);
+    window.location.href = "/resume.html";
   })["catch"](function (err) {
-    console.log(err);
+    alert(err);
   });
 }
 
-if (tiny) {
+function namedResume() {
+  Swal.fire({
+    position: 'center',
+    title: '請輸入履歷名稱',
+    input: 'text',
+    inputAttributes: {
+      autocapitalize: 'off'
+    },
+    showCancelButton: true,
+    confirmButtonText: '確認',
+    cancelButtonText: '取消',
+    showLoaderOnConfirm: true,
+    allowOutsideClick: false
+  }).then(function (result) {
+    localStorage.setItem('resumeName', JSON.stringify(result.value));
+
+    if (result.isConfirmed) {
+      Swal.fire({
+        icon: "success",
+        title: "新增成功"
+      }).then(function () {
+        saveResume();
+      });
+    }
+  });
+}
+
+;
+
+if (editor) {
   editor.addEventListener('submit', function (e) {
     e.preventDefault();
-    saveResume();
+    namedResume();
     tinymce.activeEditor.setContent("<p>Hello world!</p>"); // 設定 editor 內容
   });
 }
+
+;
 "use strict";
 
 var loginBtn = document.querySelector("[role=loginBtn]");
@@ -182,7 +214,10 @@ if (loginBtn) {
       signUp(signUpName.value, signUpAccount.value, signUpPassword.value, signUpPasswordConfirm.value);
       signUpForm.reset();
     } else {
-      alert("請確認註冊密碼");
+      Swal.fire({
+        icon: "error",
+        title: "請確認二次密碼輸入正確"
+      });
     }
   });
 }
@@ -190,18 +225,21 @@ if (loginBtn) {
 function signUp(name, account, password, passwordConfirm) {
   var apiUrl = "http://localhost:3000/register";
   var obj = {
-    // "email": "a123@mail.com",
-    // "password": "1qaz2wsx",
-    // "name": "Ryan"
     "email": account,
     "password": password,
     "passwordConfirm": passwordConfirm,
     "name": name
   };
   axios.post(apiUrl, obj).then(function (res) {
-    console.log(res);
+    Swal.fire({
+      icon: "success",
+      title: '註冊成功'
+    });
   })["catch"](function (err) {
-    console.log(err);
+    Swal.fire({
+      icon: "error",
+      title: "".concat(err.response.data)
+    });
   });
 }
 
@@ -210,20 +248,23 @@ function signUp(name, account, password, passwordConfirm) {
 function login(account, password) {
   var apiUrl = "http://localhost:3000/login";
   var data = {
-    // "email": "a123@mail.com",
-    // "password": "1qaz2wsx"
     "email": account,
     "password": password
   };
   axios.post(apiUrl, data).then(function (res) {
-    alert("請求成功");
     localStorage.setItem("email", JSON.stringify(res.data.user.email));
     localStorage.setItem("userName", JSON.stringify(res.data.user.name));
     localStorage.setItem("userId", JSON.stringify(res.data.user.id));
     localStorage.setItem("token", JSON.stringify(res.data.accessToken));
-    alert("localStorage 儲存完畢");
-    window.location.href = "account.html";
-    alert("登入完成");
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '登入成功',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(function () {
+      window.location.href = "account.html";
+    });
   })["catch"](function (err) {
     alert(err.response.data);
   });
@@ -233,6 +274,44 @@ function login(account, password) {
 
 function logout() {
   window.localStorage.clear();
+}
+
+;
+"use strict";
+
+var resumeName = document.querySelector("[data-resumeName]");
+var resumeBlock = document.querySelector("[data-myResume]");
+
+function renderData(res) {
+  var template = "";
+  res.forEach(function (item) {
+    template += "\n        <div  class=\"resume-shadow p-4 mt-4 mt-lg-8 rounded\">\n          <h4>".concat(item.name, "</h4>\n          <div class=\"mt-4\">\n            <a href=\"#\">https://example.com</a>\n            <button\n              class=\"border-0 bg-transparent opacity-75-hover px-4\"\n              type=\"button\"\n            >\n              <img\n                class=\"w-24px d-inline-block\"\n                src=\"./assets/images/copy.png\"\n                alt=\"copy\"\n                title=\"copy\"\n              />\n            </button>\n            <div class=\"d-lg-flex align-items-center justify-content-between\">\n              <div class=\"d-flex justify-content-between\">\n                <div class=\"text-lg-end\">\n                  <!-- \u7DE8\u8F2F -->\n                  <a\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block\"\n                    href=\"./editor.html\"\n                    >\u7DE8\u8F2F</a\n                  >\n                </div>\n                <!-- \u7DE8\u8F2F end -->\n                <div class=\"text-lg-end w-50 w-lg-auto\">\n                  <!-- \u700F\u89BD -->\n                  <a\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    href=\"./editor.html\"\n                    >\u700F\u89BD</a\n                  >\n                </div>\n                <!-- \u700F\u89BD end -->\n                <div class=\"text-lg-end w-50 w-lg-auto ml-4 ml-lg-0\">\n                  <!-- \u4E0B\u8F09 -->\n                  <button\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    type=\"button\"\n                  >\n                    \u4E0B\u8F09 (PDF)\n                  </button>\n                </div>\n                <!-- \u4E0B\u8F09 end -->\n              </div>\n              <div class=\"mt-4 mt-lg-8 text-end text-lg-start\">\n                <!-- \u5783\u573E\u6876 -->\n                <button\n                  type=\"button\"\n                  class=\"border-0 bg-transparent opacity-75-hover px-4\"\n                >\n                  <img\n                    class=\"w-28px d-inline-block\"\n                    src=\"./assets/images/bin.png\"\n                    alt=\"bin\"\n                    title=\"delete\"\n                  />\n                </button>\n              </div>\n              <!-- \u5783\u573E\u6876 end -->\n            </div>\n          </div>\n        </div>\n        ");
+  });
+  return resumeBlock.innerHTML = template;
+}
+
+;
+
+function getResume() {
+  var userId = JSON.parse(localStorage.getItem("userId"));
+  var token = JSON.parse(localStorage.getItem("token"));
+  var config = {
+    headers: {
+      "Authorization": "Bearer ".concat(token)
+    }
+  };
+  var apiUrl = "http://localhost:3000/600/users/".concat(userId, "/resumes");
+  axios.get(apiUrl, config).then(function (res) {
+    renderData(res.data);
+  })["catch"](function (err) {
+    alert(err);
+  });
+}
+
+;
+
+if (resumeBlock) {
+  getResume();
 }
 
 ;
