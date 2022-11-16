@@ -1,11 +1,41 @@
-tinymce.init({
-  selector: '#tinyText',
-  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
-  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
+const openTiny = document.querySelector("[data-trigger-editor]");
+const dragArea = document.querySelector("[data-draggable]")
+const editor = document.querySelector("[data-editor]");
+
+let arr = [];
+
+openTiny.addEventListener('click', () => {
+  const dragItems = document.querySelectorAll(".productBacklog .draggable");
+  let template = "";
+  dragItems.forEach((item) => {
+    template += item.outerHTML;
+    localStorage.setItem("template", template);
+    item.remove();
+  })
+  callEditor();
 });
 
-const editor = document.querySelector('[data-editor]');
+function callEditor() {
+  dragArea.classList.remove("d-none");
+  tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
+    selector: '#tinyText',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
+    content_css: '/assets/style/all.css'
+  }).then(() => {
+    setEditorContent(arr);
+  });
+};
 
+function setEditorContent(arr) {
+  let content = "";
+  arr.push(localStorage.getItem('template'));
+  arr.forEach((item) => {
+    content += item;
+  });
+  tinymce.activeEditor.setContent(content);
+  localStorage.clear();
+};
 function saveResume() {
   const userId = localStorage.getItem("userId");
   const template = tinymce.activeEditor.getContent("tinyText");// 獲取 editor 內容
@@ -28,7 +58,7 @@ function saveResume() {
     }).catch((err) => {
       alert(err);
     })
-}
+};
 function namedResume() {
   Swal.fire({
     position: 'center',
@@ -59,6 +89,5 @@ if (editor) {
   editor.addEventListener('submit', (e) => {
     e.preventDefault();
     namedResume();
-    tinymce.activeEditor.setContent("<p>Hello world!</p>"); // 設定 editor 內容
   });
 };
