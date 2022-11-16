@@ -8581,6 +8581,10 @@ fieldset:disabled .btn {
   height: 40px !important;
 }
 
+.h-1300px {
+  height: 1300px !important;
+}
+
 .mh-100 {
   max-height: 100% !important;
 }
@@ -19749,10 +19753,15 @@ li {
   border-color: #BFBFBF !important;
 }
 
-.draggble {
+.draggable {
   padding: 1rem;
   background-color: aliceblue;
-  border: 1px solid black;
+}
+
+.draggable img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .productBacklog {

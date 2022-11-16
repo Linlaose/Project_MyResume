@@ -120,35 +120,93 @@
     
 <section>
   <div class="container d-lg-flex">
-    <div class="productBacklog w-100">
-      <!-- //實現放置的區塊 -->
-      <form
-        data-editor
-        class="d-flex flex-column align-items-end editor-form"
-        action
+    <div class="productBacklog w-lg-75">
+      <button
+        data-trigger-editor
+        type="button"
+        class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5"
       >
-        <textarea id="tinyText">
-            Welcome to TinyMCE!
-          </textarea
+        顯示 Tiny
+      </button>
+      <div data-draggable class="w-100 d-none pt-lg-6">
+        <!-- //實現放置的區塊 -->
+        <form
+          data-editor
+          class="d-flex flex-column align-items-end editor-form"
+          action
         >
-        <input
-          class="btn background-gradient-linear text-white py-3 px-6 fs-base editor__form-btn"
-          type="submit"
-          value="送出"
-        />
-      </form>
+          <textarea id="tinyText">
+              Welcome to TinyMCE!
+            </textarea
+          >
+          <input
+            class="btn background-gradient-linear text-white py-3 px-6 fs-base editor__form-btn"
+            type="submit"
+            value="送出"
+          />
+        </form>
+      </div>
     </div>
-    <div class="candidate w-lg-25 ml-lg-10 mt-37 mt-lg-0">
+    <div
+      class="candidate w-lg-25 ml-lg-10 mt-37 mt-lg-0 overflow-scroll h-1300px"
+    >
       <!-- 實現放置的區塊 -->
 
-      <img src="./assets/images/bg_login.jpg" alt="" />
-      <p class="draggble" draggable="true">會員系統(登入、註冊、權限管理)</p>
+      <div class="draggable mb-4">
+        <img src="./assets/images/bg_login.jpg" alt="" />
+      </div>
+      <div class="d-flex draggable mb-4" draggable="true">
+        <div>
+          <img src="https://picsum.photos/500/300?random=1" alt="" />
+        </div>
+        <div class="pl-4">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi id
+            facilis a provident. Ratione ducimus exercitationem culpa laborum
+            magni minima?
+          </p>
+        </div>
+      </div>
       <!-- //加入 draggable="true" 來實現拖曳 -->
-      <p class="draggble" draggable="true">應徵者的線上履歷編輯器</p>
-      <p class="draggble" draggable="true">
-        前台職缺列表(職缺詳細內容、點選可發送應徵意願)
-      </p>
-      <p class="draggble" draggable="true">
+      <div class="d-flex draggable mb-4 flex-row-reverse" draggable="true">
+        <div>
+          <img src="https://picsum.photos/500/300?random=1" alt="" />
+        </div>
+        <div class="pl-4">
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi id
+            facilis a provident. Ratione ducimus exercitationem culpa laborum
+            magni minima?
+          </p>
+        </div>
+      </div>
+      <div class="d-flex justify-content-between draggable mb-4">
+        <div class="ps-2">
+          <p>1</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+          </ul>
+        </div>
+        <div class="ps-2">
+          <p>2</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+          </ul>
+        </div>
+        <div class="ps-2">
+          <p>3</p>
+          <ul>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+            <li>Lorem ipsum dolor sit amet.</li>
+          </ul>
+        </div>
+      </div>
+      <p class="draggable" draggable="true">
         後台職缺管理功能(資訊上下架、顯示應徵者資料)
       </p>
     </div>

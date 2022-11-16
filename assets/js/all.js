@@ -119,12 +119,47 @@ var footerSwiper = new Swiper(".footerSwiper", {
 });
 "use strict";
 
-tinymce.init({
-  selector: '#tinyText',
-  plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
-  toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|'
+var openTiny = document.querySelector("[data-trigger-editor]");
+var dragArea = document.querySelector("[data-draggable]");
+var editor = document.querySelector("[data-editor]");
+var arr = [];
+openTiny.addEventListener('click', function () {
+  var dragItems = document.querySelectorAll(".productBacklog .draggable");
+  var template = "";
+  dragItems.forEach(function (item) {
+    template += item.outerHTML;
+    localStorage.setItem("template", template);
+    item.remove();
+  });
+  callEditor();
 });
-var editor = document.querySelector('[data-editor]');
+
+function callEditor() {
+  dragArea.classList.remove("d-none");
+  tinymce.init({
+    // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
+    selector: '#tinyText',
+    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
+    content_css: '/assets/style/all.css'
+  }).then(function () {
+    setEditorContent(arr);
+  });
+}
+
+;
+
+function setEditorContent(arr) {
+  var content = "";
+  arr.push(localStorage.getItem('template'));
+  arr.forEach(function (item) {
+    content += item;
+  });
+  tinymce.activeEditor.setContent(content);
+  localStorage.clear();
+}
+
+;
 
 function saveResume() {
   var userId = localStorage.getItem("userId");
@@ -149,6 +184,8 @@ function saveResume() {
     alert(err);
   });
 }
+
+;
 
 function namedResume() {
   Swal.fire({
@@ -183,7 +220,6 @@ if (editor) {
   editor.addEventListener('submit', function (e) {
     e.preventDefault();
     namedResume();
-    tinymce.activeEditor.setContent("<p>Hello world!</p>"); // 設定 editor 內容
   });
 }
 
@@ -320,21 +356,18 @@ if (resumeBlock) {
 var candidateDOM = document.querySelector(".candidate");
 var productBacklogDOM = document.querySelector(".productBacklog");
 var candidate = Sortable.create(candidateDOM, {
-  group: "shared",
-  animation: 500 // onEnd: (event) => {
-  //   console.log(event.to);
-  //   console.log(event.from);
-  //   console.log(event.oldIndex);
-  //   console.log(event.newIndex);
-  // }
-
+  group: {
+    name: "shared",
+    pull: "clone"
+  },
+  animation: 500,
+  sort: false,
+  onAdd: function onAdd(e) {
+    e.item.classList.add("d-none");
+  }
 });
 var productBacklog = Sortable.create(productBacklogDOM, {
   group: "shared",
-  onChange: function onChange(e) {
-    var order = productBacklog.toArray(); // 取得 dataset
-
-    console.log(order);
-  }
+  animation: 500
 });
 //# sourceMappingURL=all.js.map
