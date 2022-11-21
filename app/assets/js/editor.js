@@ -12,7 +12,7 @@ function callEditor() {
     selector: '#tinyText',
     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-    content_css: '../style/all.css' // 配合 Github 路徑
+    content_css: '/Project_MyResume/assets/style/all.css' // 配合 Github 路徑
   }).then(() => {
     setEditorContent(arr);
   });
