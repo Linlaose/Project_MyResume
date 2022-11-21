@@ -1,19 +1,10 @@
 const openTiny = document.querySelector("[data-trigger-editor]");
-const dragArea = document.querySelector("[data-draggable]")
+const dragArea = document.querySelector("[data-draggable]");
 const editor = document.querySelector("[data-editor]");
 
 let arr = [];
 
-openTiny.addEventListener('click', () => {
-  const dragItems = document.querySelectorAll(".productBacklog .draggable");
-  let template = "";
-  dragItems.forEach((item) => {
-    template += item.outerHTML;
-    localStorage.setItem("template", template);
-    item.remove();
-  })
-  callEditor();
-});
+
 
 function callEditor() {
   dragArea.classList.remove("d-none");
@@ -21,7 +12,7 @@ function callEditor() {
     selector: '#tinyText',
     plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
     toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-    content_css: '/assets/style/all.css'
+    content_css: '../style/all.css' // 配合 Github 路徑
   }).then(() => {
     setEditorContent(arr);
   });
@@ -89,5 +80,15 @@ if (editor) {
   editor.addEventListener('submit', (e) => {
     e.preventDefault();
     namedResume();
+  });
+  openTiny.addEventListener('click', () => {
+    const dragItems = document.querySelectorAll(".productBacklog .draggable");
+    let template = "";
+    dragItems.forEach((item) => {
+      template += item.outerHTML;
+      localStorage.setItem("template", template);
+      item.remove();
+    })
+    callEditor();
   });
 };
