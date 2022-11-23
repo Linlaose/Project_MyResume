@@ -1,11 +1,11 @@
 const resumeName = document.querySelector("[data-resumeName]");
-const resumeBlock = document.querySelector("[data-myResume]");
+const resumeList = document.querySelector("[data-myResume]");
 
 function renderData(res) {
   let template = "";
-  res.forEach((item) => {
+  res.forEach((item, index) => {
     template += `
-        <div  class="resume-shadow p-4 mt-4 mt-lg-8 rounded">
+        <div class="resume-shadow p-4 mt-4 mt-lg-8 rounded">
           <h4>${item.name}</h4>
           <div class="mt-4">
             <a href="#">https://example.com</a>
@@ -25,6 +25,7 @@ function renderData(res) {
                 <div class="text-lg-end">
                   <!-- 編輯 -->
                   <a
+                    role=editBtn
                     class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block"
                     href="./editor.html"
                     >編輯</a
@@ -34,6 +35,7 @@ function renderData(res) {
                 <div class="text-lg-end w-50 w-lg-auto">
                   <!-- 瀏覽 -->
                   <a
+                    role=viewBtn
                     class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto"
                     href="./editor.html"
                     >瀏覽</a
@@ -43,6 +45,7 @@ function renderData(res) {
                 <div class="text-lg-end w-50 w-lg-auto ml-4 ml-lg-0">
                   <!-- 下載 -->
                   <button
+                    role="downloadBtn"
                     class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto"
                     type="button"
                   >
@@ -58,6 +61,8 @@ function renderData(res) {
                   class="border-0 bg-transparent opacity-75-hover px-4"
                 >
                   <img
+                    role="delBtn"
+                    data-id=${item.id}
                     class="w-28px d-inline-block"
                     src="./assets/images/bin.png"
                     alt="bin"
@@ -71,7 +76,7 @@ function renderData(res) {
         </div>
         `;
   });
-  return resumeBlock.innerHTML = template
+  return resumeList.innerHTML = template
 };
 function getResume() {
   const userId = JSON.parse(localStorage.getItem("userId"));
@@ -90,6 +95,31 @@ function getResume() {
       alert(err);
     })
 };
-if (resumeBlock) {
+function delResume(resumeId) {
+  const apiUrl = `http://localhost:3000/600/resumes/${resumeId}`;
+  const token = JSON.parse(localStorage.getItem("token"));
+  const config = {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  }
+
+  axios.delete(apiUrl, config)
+    .then((res) => {
+      getResume();
+    })
+    .catch((err) => {
+      alert(err);
+    })
+};
+if (resumeList) {
   getResume();
+  resumeList.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = e.target.getAttribute("role");
+    const targetId = e.target.getAttribute("data-id");
+    if (target === "delBtn") {
+      delResume(targetId);
+    }
+  });
 };
