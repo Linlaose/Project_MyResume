@@ -4,12 +4,25 @@ const editor = document.querySelector("[data-editor]");
 const resumeId = JSON.parse(localStorage.getItem("resumeId"));
 
 function init() {
-  getContent();
+  if (resumeId !== null) { // 判斷是否已是現有的履歷
+    getContent();
+  } else {
+    tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
+      selector: '#tinyText',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
+      // content_css: '/Project_MyResume/assets/style/all.css' // 配合 Github 路徑
+      content_css: '/assets/style/all.css', // 本地開發路徑
+      setup: (editor) => {
+        editor.on('blur', () => {
+          localStorage.setItem("template", tinymce.activeEditor.getContent());
+        })
+      }
+    })
+  };
 };
 if (editor) {
-  if (resumeId !== null) {
-    init();
-  }
+  init();
 };
 
 
@@ -43,28 +56,15 @@ function getContent() {
 };
 function callEditor() {
   dragArea.classList.remove("d-none");
-  if (resumeId !== null) {
-    addEditorContent();
-  } else {
-    tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
-      selector: '#tinyText',
-      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
-      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-      // content_css: '/Project_MyResume/assets/style/all.css' // 配合 Github 路徑
-      content_css: '/assets/style/all.css', // 本地開發路徑
-      setup: (editor) => {
-        editor.on('blur', () => {
-          localStorage.setItem("template", tinymce.activeEditor.getContent());
-        })
-      }
-    })
-    addEditorContent();
-  };
+  addEditorContent();
 };
 
 
 function addEditorContent() {
   let template = localStorage.getItem("template");
+  if (localStorage.getItem("template") === null) { // 空白履歷直接開啟 tiny 編輯器時
+    template = "";
+  };
   const newTemplate = localStorage.getItem("newTemplate");
   template += newTemplate;
   localStorage.setItem("template", template)
@@ -72,9 +72,34 @@ function addEditorContent() {
 };
 
 function updateResume() {
-  const resumeId = localStorage.getItem("resumeId");
+  const resumeId = JSON.parse(localStorage.getItem("resumeId"));
   const template = tinymce.activeEditor.getContent("tinyText");
-  console.log(resumeId);
+  const token = JSON.parse(localStorage.getItem("token"));
+
+  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${resumeId}`;
+  const data = {
+    "template": template
+  };
+  const config = {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  }
+  axios.patch(apiUrl, data, config)
+    .then((res) => {
+      Swal.fire({
+        position: 'center',
+        icon: 'success',
+        title: '修改完成',
+        showConfirmButton: false,
+        timer: 1500
+      }).then(() => {
+        window.location.href = "/resume.html";
+      })
+    })
+    .catch((err) => {
+      console.log(err);
+    })
 }
 function saveResume() {
   const userId = localStorage.getItem("userId");

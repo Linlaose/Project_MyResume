@@ -70,7 +70,7 @@ function login(account, password) {
         showConfirmButton: false,
         timer: 1500
       }).then(() => {
-        window.location.href = "account.html";
+        window.location.href = "/account.html";
       })
     }).catch((err) => {
       alert(err.response.data);
