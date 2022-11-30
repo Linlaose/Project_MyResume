@@ -32,7 +32,7 @@ function getContent() {
         content_css: '/assets/style/all.css', // 本地開發路徑
         setup: (editor) => {
           editor.on('blur', () => {
-            localStorage.setItem("edited", tinymce.activeEditor.getContent());
+            localStorage.setItem("template", tinymce.activeEditor.getContent());
           })
         }
       }).then(() => {
@@ -43,7 +43,23 @@ function getContent() {
 };
 function callEditor() {
   dragArea.classList.remove("d-none");
-  addEditorContent();
+  if (resumeId !== null) {
+    addEditorContent();
+  } else {
+    tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
+      selector: '#tinyText',
+      plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
+      toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
+      // content_css: '/Project_MyResume/assets/style/all.css' // 配合 Github 路徑
+      content_css: '/assets/style/all.css', // 本地開發路徑
+      setup: (editor) => {
+        editor.on('blur', () => {
+          localStorage.setItem("template", tinymce.activeEditor.getContent());
+        })
+      }
+    })
+    addEditorContent();
+  };
 };
 
 
@@ -54,6 +70,12 @@ function addEditorContent() {
   localStorage.setItem("template", template)
   tinymce.activeEditor.setContent(template);
 };
+
+function updateResume() {
+  const resumeId = localStorage.getItem("resumeId");
+  const template = tinymce.activeEditor.getContent("tinyText");
+  console.log(resumeId);
+}
 function saveResume() {
   const userId = localStorage.getItem("userId");
   const template = tinymce.activeEditor.getContent("tinyText");// 獲取 editor 內容
@@ -106,7 +128,11 @@ function namedResume() {
 if (editor) {
   editor.addEventListener('submit', (e) => {
     e.preventDefault();
-    namedResume();
+    if (!resumeId) {
+      namedResume();
+    } else {
+      updateResume();
+    };
   });
   openTiny.addEventListener('click', () => {
     const dragItems = document.querySelectorAll(".productBacklog .draggable");
