@@ -257,7 +257,7 @@ function saveResume() {
     }
   };
   axios.post(apiUrl, data, config).then(function (res) {
-    window.location.href = "/resume.html";
+    window.location.href = "resume.html";
   })["catch"](function (err) {
     alert(err);
   });
