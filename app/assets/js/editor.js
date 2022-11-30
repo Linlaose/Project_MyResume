@@ -119,7 +119,7 @@ function saveResume() {
   };
   axios.post(apiUrl, data, config)
     .then((res) => {
-      window.location.href = "/resume.html";
+      window.location.href = "resume.html";
     }).catch((err) => {
       alert(err);
     })
