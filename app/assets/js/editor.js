@@ -1,38 +1,64 @@
 const openTiny = document.querySelector("[data-trigger-editor]");
 const dragArea = document.querySelector("[data-draggable]");
 const editor = document.querySelector("[data-editor]");
+const resumeId = JSON.parse(localStorage.getItem("resumeId"));
 
-let arr = [];
-
-
-
-function callEditor() {
-  dragArea.classList.remove("d-none");
-  tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
-    selector: '#tinyText',
-    plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
-    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-    content_css: '/Project_MyResume/assets/style/all.css' // 配合 Github 路徑
-    // content_css: '/assets/style/all.css' // 本地開發路徑
-  }).then(() => {
-    setEditorContent(arr);
-  });
+function init() {
+  getContent();
+};
+if (editor) {
+  if (resumeId !== null) {
+    init();
+  }
 };
 
-function setEditorContent(arr) {
-  let content = "";
-  arr.push(localStorage.getItem('template'));
-  arr.forEach((item) => {
-    content += item;
-  });
-  tinymce.activeEditor.setContent(content);
-  // localStorage.clear();
+
+function getContent() {
+  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${resumeId}`;
+  const token = JSON.parse(localStorage.getItem("token"));
+  const config = {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  };
+
+  axios.get(apiUrl, config)
+    .then((res) => {
+      tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
+        selector: '#tinyText',
+        plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
+        toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
+        // content_css: '/Project_MyResume/assets/style/all.css' // 配合 Github 路徑
+        content_css: '/assets/style/all.css', // 本地開發路徑
+        setup: (editor) => {
+          editor.on('blur', () => {
+            localStorage.setItem("edited", tinymce.activeEditor.getContent());
+          })
+        }
+      }).then(() => {
+        localStorage.setItem("template", res.data.template);
+        tinymce.activeEditor.setContent(res.data.template);
+      });
+    })
+};
+function callEditor() {
+  dragArea.classList.remove("d-none");
+  addEditorContent();
+};
+
+
+function addEditorContent() {
+  let template = localStorage.getItem("template");
+  const newTemplate = localStorage.getItem("newTemplate");
+  template += newTemplate;
+  localStorage.setItem("template", template)
+  tinymce.activeEditor.setContent(template);
 };
 function saveResume() {
   const userId = localStorage.getItem("userId");
   const template = tinymce.activeEditor.getContent("tinyText");// 獲取 editor 內容
   const token = JSON.parse(localStorage.getItem("token"));
-  const apiUrl = `http://localhost:3000/600/users/${userId}/resumes`;
+  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/${userId}/resumes`;
   const name = JSON.parse(localStorage.getItem("resumeName"));
   const data = {
     "userId": `${userId}`,
@@ -85,11 +111,12 @@ if (editor) {
   openTiny.addEventListener('click', () => {
     const dragItems = document.querySelectorAll(".productBacklog .draggable");
     let template = "";
+    localStorage.setItem("newTemplate", "");
     dragItems.forEach((item) => {
       template += item.outerHTML;
-      localStorage.setItem("template", template);
+      localStorage.setItem("newTemplate", template);
       item.remove();
-    })
+    });
     callEditor();
   });
 };

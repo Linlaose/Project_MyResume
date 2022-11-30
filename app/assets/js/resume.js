@@ -26,6 +26,7 @@ function renderData(res) {
                   <!-- 編輯 -->
                   <a
                     role=editBtn
+                    data-id=${item.id}
                     class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block"
                     href="./editor.html"
                     >編輯</a
@@ -36,6 +37,7 @@ function renderData(res) {
                   <!-- 瀏覽 -->
                   <a
                     role=viewBtn
+                    data-id=${item.id}
                     class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto"
                     href="./editor.html"
                     >瀏覽</a
@@ -86,7 +88,7 @@ function getResume() {
       "Authorization": `Bearer ${token}`
     }
   };
-  const apiUrl = `http://localhost:3000/600/users/${userId}/resumes`;
+  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/${userId}/resumes`;
 
   axios.get(apiUrl, config)
     .then((res) => {
@@ -96,7 +98,7 @@ function getResume() {
     })
 };
 function delResume(resumeId) {
-  const apiUrl = `http://localhost:3000/600/resumes/${resumeId}`;
+  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${resumeId}`;
   const token = JSON.parse(localStorage.getItem("token"));
   const config = {
     headers: {
@@ -120,6 +122,9 @@ if (resumeList) {
     const targetId = e.target.getAttribute("data-id");
     if (target === "delBtn") {
       delResume(targetId);
+    } else if (target === "viewBtn" || target === "editBtn") {
+      localStorage.setItem("resumeId", JSON.stringify(`${targetId}`))
+      location.href = "editor.html";
     }
   });
 };

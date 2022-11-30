@@ -30,7 +30,7 @@ if (loginBtn) {
   });
 }
 function signUp(name, account, password, passwordConfirm) {
-  const apiUrl = "http://localhost:3000/register";
+  const apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/register";
   const obj = {
     "email": account,
     "password": password,
@@ -51,7 +51,7 @@ function signUp(name, account, password, passwordConfirm) {
     })
 };
 function login(account, password) {
-  const apiUrl = "http://localhost:3000/login";
+  const apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/login";
   const data = {
     "email": account,
     "password": password
