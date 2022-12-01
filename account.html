@@ -100,20 +100,13 @@
           </ul>
           <div>
             <a
-              class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 lh-1 d-lg-none position-absolute bottom-24 left-12 right-12"
+              class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 lh-1 d-lg-none position-absolute bottom-24 left-12 right-12 js-mobile-login-btn"
               href="./login.html"
               >登入/註冊</a
             >
           </div>
         </div>
-        <div class="d-none d-lg-block">
-          <a
-            class="collapse navbar-collapse btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 transition-300"
-            href="./login.html"
-          >
-            登入/註冊
-          </a>
-        </div>
+        <div class="d-none d-lg-block js-index-login-btn"></div>
       </div>
     </nav>
 
@@ -196,6 +189,7 @@
       </div>
       <div class="text-end">
         <a
+          data-changePasswordBtn
           class="btn rounded-pill w-50 w-lg-25 background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10"
           href="./dashboard.html"
           >更新</a

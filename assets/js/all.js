@@ -4,16 +4,72 @@ var myAccount = document.querySelector("[data-myAccount]");
 var newPassword = document.querySelector("[data-newPassword]");
 var newPasswordConfirm = document.querySelector("[data-newPasswordConfirm]");
 var userName = document.querySelector("[data-userName]");
+var changePwdBtn = document.querySelector("[data-changePasswordBtn]");
 var myResume = document.querySelector("[data-myResume]");
+
+function updatePwd(pwd) {
+  var token = JSON.parse(localStorage.getItem("token"));
+  var userId = localStorage.getItem("userId");
+  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/".concat(userId);
+  var data = {
+    "password": pwd
+  };
+  var config = {
+    headers: {
+      "Authorization": "Bearer ".concat(token)
+    }
+  };
+  axios.patch(apiUrl, data, config).then(function (res) {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '密碼修改成功，請重新登入',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(function () {
+      localStorage.clear();
+      location.href = "login.html";
+    });
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+
+;
 
 if (myAccount) {
   myAccount.value = JSON.parse(localStorage.getItem("email"));
   userName.innerText = JSON.parse(localStorage.getItem("userName"));
+  newPasswordConfirm.addEventListener('blur', function () {
+    if (newPassword.value !== newPasswordConfirm.value) {
+      Swal.fire({
+        icon: 'error',
+        title: '密碼好像輸入不一致',
+        text: '請確認二次密碼'
+      }).then(function () {
+        newPassword.value = "";
+        newPasswordConfirm.value = "";
+      });
+    }
+
+    ;
+  });
+  changePwdBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (newPassword.value && newPasswordConfirm.value) {
+      updatePwd(newPassword.value);
+    }
+  });
 }
+
+;
 
 if (myResume) {
   userName.innerText = JSON.parse(localStorage.getItem("userName"));
 }
+
+;
 "use strict";
 
 $(function () {
@@ -34,6 +90,65 @@ if (burger) {
 }
 
 ;
+var loginBtn = document.querySelector(".js-index-login-btn");
+var mobileLoginBtn = document.querySelector(".js-mobile-login-btn");
+
+function indexInit() {
+  renderLoginBtn();
+
+  if (localStorage.getItem("userId")) {
+    logout();
+  }
+
+  ;
+}
+
+;
+indexInit();
+
+function renderLoginBtn() {
+  var template;
+
+  if (localStorage.getItem("userId") === null) {
+    template = "\n      <a\n        class=\"collapse navbar-collapse btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 transition-300\"\n        href=\"./login.html\"\n      >\n        \u767B\u5165/\u8A3B\u518A\n      </a>\n    ";
+  } else {
+    template = "\n          <div class=\"my-avatar\">\n            <img class=\"mr-4\" src=\"./assets/images/Avatar.png\" alt=\"\" />\n            <div\n              class=\"mt-6 mt-md-0 position-absolute right-12 w-160px avatar-show\"\n            >\n              <ul\n                class=\"my-2 mb-0 dropdown-shadow border-transparent rounded-16px\"\n              >\n                <li class=\"pt-2\">\n                  <a\n                    class=\"d-block py-3 px-6 text-decoration-none bg-gray-hover\"\n                    href=\"./resume.html\"\n                    >\u6211\u7684\u5C65\u6B77</a\n                  >\n                </li>\n                <li>\n                  <a\n                    class=\"d-block py-3 px-6 text-decoration-none bg-gray-hover border-b\"\n                    href=\"./account.html\"\n                    >\u8A2D\u5B9A</a\n                  >\n                </li>\n                <li class=\"pb-2\">\n                  <a\n                    class=\"d-block py-3 px-6 text-decoration-none text-light js-index-logout-btn\"\n                    href=\"#\"\n                    >\u767B\u51FA</a\n                  >\n                </li>\n              </ul>\n            </div>\n          </div>\n    ";
+    mobileLoginBtn.textContent = "登出";
+  }
+
+  ;
+  loginBtn.innerHTML = template;
+}
+
+;
+
+function logout() {
+  var logoutBtn = document.querySelector(".js-index-logout-btn");
+  logoutBtn.addEventListener('click', function () {
+    localStorage.clear();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '登出成功',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(function () {
+      location.href = "index.html";
+    });
+  });
+  mobileLoginBtn.addEventListener('click', function () {
+    localStorage.clear();
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: '登出成功',
+      showConfirmButton: false,
+      timer: 1500
+    }).then(function () {
+      location.href = "index.html";
+    });
+  });
+}
 "use strict";
 
 var resumeSwiper = new Swiper(".resumeSwiper", {
@@ -403,12 +518,6 @@ function login(account, password) {
 }
 
 ;
-
-function logout() {
-  window.localStorage.clear();
-}
-
-;
 "use strict";
 
 var resumeName = document.querySelector("[data-resumeName]");
@@ -451,7 +560,12 @@ function delResume(resumeId) {
     }
   };
   axios["delete"](apiUrl, config).then(function (res) {
-    getResume();
+    Swal.fire({
+      icon: 'success',
+      title: '刪除成功'
+    }).then(function () {
+      getResume();
+    });
   })["catch"](function (err) {
     alert(err);
   });

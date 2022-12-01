@@ -8533,6 +8533,10 @@ fieldset:disabled .btn {
   width: 40px !important;
 }
 
+.w-160px {
+  width: 160px !important;
+}
+
 .mw-100 {
   max-width: 100% !important;
 }
@@ -11156,6 +11160,9 @@ fieldset:disabled .btn {
   .w-sm-40px {
     width: 40px !important;
   }
+  .w-sm-160px {
+    width: 160px !important;
+  }
   .flex-sm-fill {
     -webkit-box-flex: 1 !important;
         -ms-flex: 1 1 auto !important;
@@ -12791,6 +12798,9 @@ fieldset:disabled .btn {
   }
   .w-md-40px {
     width: 40px !important;
+  }
+  .w-md-160px {
+    width: 160px !important;
   }
   .flex-md-fill {
     -webkit-box-flex: 1 !important;
@@ -14428,6 +14438,9 @@ fieldset:disabled .btn {
   .w-lg-40px {
     width: 40px !important;
   }
+  .w-lg-160px {
+    width: 160px !important;
+  }
   .flex-lg-fill {
     -webkit-box-flex: 1 !important;
         -ms-flex: 1 1 auto !important;
@@ -16064,6 +16077,9 @@ fieldset:disabled .btn {
   .w-xl-40px {
     width: 40px !important;
   }
+  .w-xl-160px {
+    width: 160px !important;
+  }
   .flex-xl-fill {
     -webkit-box-flex: 1 !important;
         -ms-flex: 1 1 auto !important;
@@ -17699,6 +17715,9 @@ fieldset:disabled .btn {
   }
   .w-xxl-40px {
     width: 40px !important;
+  }
+  .w-xxl-160px {
+    width: 160px !important;
   }
   .flex-xxl-fill {
     -webkit-box-flex: 1 !important;
@@ -19411,6 +19430,15 @@ li {
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
+}
+
+.my-avatar:hover .avatar-show {
+  display: block;
+}
+
+.avatar-show {
+  display: none;
+  background: #fff;
 }
 
 .resumeSwiper {
