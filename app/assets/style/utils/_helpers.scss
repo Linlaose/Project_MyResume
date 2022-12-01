@@ -1,7 +1,7 @@
 // transition
 .transition-300 {
   transition: all .3s;
-};
+}
 
 // focus
 
@@ -23,7 +23,7 @@
   margin-top: 80px;
   z-index: 10;
   background: #fff;
-};
+}
 
 // background
 .background-gradient-linear {
@@ -39,7 +39,7 @@
       background: linear-gradient(135deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
     };
   }
-};
+}
 
 .background-gradient-linear-active { // 三大類別頁的按鈕
   color: #3B7FCF !important;
@@ -50,16 +50,16 @@
     color: #3B7FCF !important;
     background: linear-gradient(135deg, rgba(192, 221, 255, 0.6) 0%, rgba(240, 247, 255, 0.6) 100%);
   };
-};
+}
 
 // box-shadow
 .image-shadow {
   box-shadow: (0px 4px 20px rgba(0, 0, 0, 0.08));
-};
+}
 
 .dropdown-shadow {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.12);
-};
+}
 
 // Editor-TinyMCE
 .editor-form {
@@ -77,7 +77,7 @@
 }
 [role=application] {
   width: 100%;
-};
+}
 
 // 圖片取代文字
 .h1-image {
@@ -89,4 +89,17 @@
   overflow: hidden;
   text-indent: 101%;
   white-space: nowrap;
-};
+}
+
+// 頭像 hover
+.my-avatar {
+  &:hover {
+    .avatar-show {
+      display: block;
+    }
+  }
+}
+.avatar-show{
+  display: none;
+  background: #fff;
+}

@@ -76,6 +76,3 @@ function login(account, password) {
       alert(err.response.data);
     })
 };
-function logout() {
-  window.localStorage.clear();
-};

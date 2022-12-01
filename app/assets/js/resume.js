@@ -108,7 +108,12 @@ function delResume(resumeId) {
 
   axios.delete(apiUrl, config)
     .then((res) => {
-      getResume();
+      Swal.fire({
+        icon: 'success',
+        title: '刪除成功',
+      }).then(() => {
+        getResume();
+      })
     })
     .catch((err) => {
       alert(err);
