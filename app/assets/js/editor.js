@@ -11,8 +11,8 @@ function init() {
       selector: '#tinyText',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-      content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
-      // content_css: '/assets/style/all.css', // 本地開發路徑
+      // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
+      content_css: '/assets/style/all.css', // 本地開發路徑
       setup: (editor) => {
         editor.on('blur', () => {
           localStorage.setItem("template", tinymce.activeEditor.getContent());
@@ -41,8 +41,8 @@ function getContent() {
         selector: '#tinyText',
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-        content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
-        // content_css: '/assets/style/all.css', // 本地開發路徑
+        // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
+        content_css: '/assets/style/all.css', // 本地開發路徑
         setup: (editor) => {
           editor.on('blur', () => {
             localStorage.setItem("template", tinymce.activeEditor.getContent());

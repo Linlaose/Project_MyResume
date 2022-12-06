@@ -48,6 +48,7 @@ function renderData(res) {
                   <!-- 下載 -->
                   <button
                     role="downloadBtn"
+                    data-id=${item.id}
                     class="btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto"
                     type="button"
                   >
@@ -97,6 +98,13 @@ function getResume() {
       alert(err);
     })
 };
+function delResumeData() {
+  localStorage.removeItem("resumeId");
+  localStorage.removeItem("fileName");
+  localStorage.removeItem("resumeName");
+  localStorage.removeItem("template");
+  localStorage.removeItem("newTemplate");
+};
 function delResume(resumeId) {
   const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${resumeId}`;
   const token = JSON.parse(localStorage.getItem("token"));
@@ -104,7 +112,8 @@ function delResume(resumeId) {
     headers: {
       "Authorization": `Bearer ${token}`
     }
-  }
+  };
+
 
   axios.delete(apiUrl, config)
     .then((res) => {
@@ -119,7 +128,49 @@ function delResume(resumeId) {
       alert(err);
     })
 };
+function printResume(targetId) {
+  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${targetId}`;
+  const token = JSON.parse(localStorage.getItem("token"));
+  const config = {
+    headers: {
+      "Authorization": `Bearer ${token}`
+    }
+  };
+
+
+
+  axios.get(apiUrl, config)
+    .then((res) => {
+      const el = document.createElement("div");
+      el.innerHTML = res.data.template;
+      Swal.fire({
+        title: "另存新檔為：",
+        input: "text",
+        showCancelButton: true,
+        cancelButtonText: "取消",
+        confirmButtonText: "確認",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.setItem("fileName", JSON.stringify(result.value));
+          let opt = {
+            margin: 0,
+            filename: JSON.parse(localStorage.getItem("fileName")),
+            image: { type: 'pdf', quality: 0.95 },
+            html2canvas: { scale: 2, useCORS: true }, // 用 CORS 才能確保能抓到其他網站圖片
+            jsPDF: { unit: 'mm', format: 'letter', orientation: 'p', compressPDF: true },
+            pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
+          }; // 內容被截掉，試過 pagebreak 和加上 div 
+          html2pdf().set(opt).from(el).save();
+        }
+      });
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+};
+
 if (resumeList) {
+  delResumeData();
   getResume();
   resumeList.addEventListener('click', (e) => {
     e.preventDefault();
@@ -130,6 +181,8 @@ if (resumeList) {
     } else if (target === "viewBtn" || target === "editBtn") {
       localStorage.setItem("resumeId", JSON.stringify(`${targetId}`))
       location.href = "editor.html";
-    }
+    } else if (target === "downloadBtn") {
+      printResume(targetId);
+    };
   });
 };
