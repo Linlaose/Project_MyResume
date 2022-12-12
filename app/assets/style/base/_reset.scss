@@ -28,3 +28,14 @@ li {
   list-style: none;
   padding-inline-start: 0;
 }
+
+.js-resume-template li {
+  overflow: hidden;
+  width: 30%;
+  img {
+    transition: all .3s;
+    &:hover {
+      scale: 1.05;
+    }
+  }
+}

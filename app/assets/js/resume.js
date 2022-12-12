@@ -159,7 +159,7 @@ function printResume(targetId) {
             html2canvas: { scale: 2, useCORS: true }, // 用 CORS 才能確保能抓到其他網站圖片
             jsPDF: { unit: 'mm', format: 'letter', orientation: 'p', compressPDF: true },
             pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
-          }; // 內容被截掉，試過 pagebreak 和加上 div 
+          };
           html2pdf().set(opt).from(el).save();
         }
       });
