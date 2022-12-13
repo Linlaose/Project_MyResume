@@ -89,7 +89,7 @@ function getResume() {
       "Authorization": `Bearer ${token}`
     }
   };
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/${userId}/resumes`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/users/${userId}/resumes`;
 
   axios.get(apiUrl, config)
     .then((res) => {
@@ -106,7 +106,7 @@ function delResumeData() {
   localStorage.removeItem("newTemplate");
 };
 function delResume(resumeId) {
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${resumeId}`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/resumes/${resumeId}`;
   const token = JSON.parse(localStorage.getItem("token"));
   const config = {
     headers: {
@@ -129,7 +129,7 @@ function delResume(resumeId) {
     })
 };
 function printResume(targetId) {
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${targetId}`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/resumes/${targetId}`;
   const token = JSON.parse(localStorage.getItem("token"));
   const config = {
     headers: {
@@ -160,7 +160,7 @@ function printResume(targetId) {
             jsPDF: { unit: 'mm', format: 'letter', orientation: 'p', compressPDF: true },
             pagebreak: { mode: ['avoid-all', 'css', 'legacy'] }
           };
-          html2pdf().set(opt).from(el).save();
+          html2pdf().set(opt).from(el).save();// 換版本
         }
       });
     })

@@ -27,7 +27,7 @@ if (editor) {
 
 
 function getContent() {
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${resumeId}`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/resumes/${resumeId}`;
   const token = JSON.parse(localStorage.getItem("token"));
   const config = {
     headers: {
@@ -76,7 +76,7 @@ function updateResume() {
   const template = tinymce.activeEditor.getContent("tinyText");
   const token = JSON.parse(localStorage.getItem("token"));
 
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/${resumeId}`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/resumes/${resumeId}`;
   const data = {
     "template": template
   };
@@ -105,7 +105,7 @@ function saveResume() {
   const userId = localStorage.getItem("userId");
   const template = tinymce.activeEditor.getContent("tinyText");// 獲取 editor 內容
   const token = JSON.parse(localStorage.getItem("token"));
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/${userId}/resumes`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/users/${userId}/resumes`;
   const name = JSON.parse(localStorage.getItem("resumeName"));
   const data = {
     "userId": `${userId}`,

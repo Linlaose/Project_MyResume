@@ -8,7 +8,7 @@ if (designResumeTemplate) {
 }
 
 function getResumes() {
-  const apiUrl = 'https://my-resume-server-pdla9hri6-linlaose.vercel.app/resumes';
+  const apiUrl = 'https://my-resume-server-linlaose.vercel.app/resumes';
   let resumes;
 
   axios.get(apiUrl)
@@ -40,7 +40,7 @@ function drawTemplate(arr) {
 }
 
 function receiveResume(resumeId) {
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/resumes/${resumeId}`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/resumes/${resumeId}`;
 
   axios.get(apiUrl)
     .then((res) => {

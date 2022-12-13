@@ -9,7 +9,7 @@ function updatePwd(pwd) {
   const token = JSON.parse(localStorage.getItem("token"));
   const userId = localStorage.getItem("userId");
 
-  const apiUrl = `https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/${userId}`;
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/users/${userId}`;
   const data = {
     "password": pwd
   };
