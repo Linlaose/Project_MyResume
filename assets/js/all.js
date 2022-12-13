@@ -10,7 +10,7 @@ var myResume = document.querySelector("[data-myResume]");
 function updatePwd(pwd) {
   var token = JSON.parse(localStorage.getItem("token"));
   var userId = localStorage.getItem("userId");
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/".concat(userId);
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/users/".concat(userId);
   var data = {
     "password": pwd
   };
@@ -234,6 +234,77 @@ var footerSwiper = new Swiper(".footerSwiper", {
 });
 "use strict";
 
+var designResumeTemplate = document.querySelector('#designResumeTemplate');
+
+function initDesign() {
+  getResumes();
+}
+
+if (designResumeTemplate) {
+  initDesign();
+}
+
+function getResumes() {
+  var apiUrl = 'https://my-resume-server-linlaose.vercel.app/resumes';
+  var resumes;
+  axios.get(apiUrl).then(function (res) {
+    resumes = res.data;
+    drawTemplate(resumes);
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+
+function drawTemplate(arr) {
+  arr.forEach(function (item, index) {
+    var el = document.createElement('li');
+    el.setAttribute('data-id', index + 1);
+    el.innerHTML = item.template;
+    designResumeTemplate.appendChild(el);
+  });
+  var elArray = designResumeTemplate.children;
+  var str = "";
+  elArray.forEach(function (item, index) {
+    html2canvas(item, {
+      useCORS: true
+    }).then(function (canvas) {
+      var base64 = canvas.toDataURL();
+      str += "<li><a href=\"index.html\"><img data-id=".concat(index + 1, " src=\"").concat(base64, "\"></a></li>");
+      designResumeTemplate.innerHTML = str;
+    });
+  });
+}
+
+function receiveResume(resumeId) {
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/resumes/".concat(resumeId);
+  axios.get(apiUrl).then(function (res) {
+    localStorage.setItem('template', res.data.template);
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+
+if (designResumeTemplate) {
+  designResumeTemplate.addEventListener('click', function (e) {
+    e.preventDefault();
+
+    if (e.target.tagName === 'IMG') {
+      if (!localStorage.getItem('userId')) {
+        Swal.fire({
+          icon: "warning",
+          title: "請登入會員"
+        }).then(function () {
+          location.href = 'login.html';
+        });
+      } else {
+        var resumeId = e.target.getAttribute('data-id');
+        receiveResume(resumeId);
+      }
+    }
+  });
+}
+"use strict";
+
 var openTiny = document.querySelector("[data-trigger-editor]");
 var dragArea = document.querySelector("[data-draggable]");
 var editor = document.querySelector("[data-editor]");
@@ -249,9 +320,9 @@ function init() {
       selector: '#tinyText',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-      content_css: '/Project_MyResume/assets/style/all.css',
-      // 配合 Github 路徑
-      // content_css: '/assets/style/all.css', // 本地開發路徑
+      // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
+      content_css: '/assets/style/all.css',
+      // 本地開發路徑
       setup: function setup(editor) {
         editor.on('blur', function () {
           localStorage.setItem("template", tinymce.activeEditor.getContent());
@@ -272,7 +343,7 @@ if (editor) {
 ;
 
 function getContent() {
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/".concat(resumeId);
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/resumes/".concat(resumeId);
   var token = JSON.parse(localStorage.getItem("token"));
   var config = {
     headers: {
@@ -285,9 +356,9 @@ function getContent() {
       selector: '#tinyText',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-      content_css: '/Project_MyResume/assets/style/all.css',
-      // 配合 Github 路徑
-      // content_css: '/assets/style/all.css', // 本地開發路徑
+      // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
+      content_css: '/assets/style/all.css',
+      // 本地開發路徑
       setup: function setup(editor) {
         editor.on('blur', function () {
           localStorage.setItem("template", tinymce.activeEditor.getContent());
@@ -330,7 +401,7 @@ function updateResume() {
   var resumeId = JSON.parse(localStorage.getItem("resumeId"));
   var template = tinymce.activeEditor.getContent("tinyText");
   var token = JSON.parse(localStorage.getItem("token"));
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/".concat(resumeId);
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/resumes/".concat(resumeId);
   var data = {
     "template": template
   };
@@ -359,7 +430,7 @@ function saveResume() {
   var template = tinymce.activeEditor.getContent("tinyText"); // 獲取 editor 內容
 
   var token = JSON.parse(localStorage.getItem("token"));
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/".concat(userId, "/resumes");
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/users/".concat(userId, "/resumes");
   var name = JSON.parse(localStorage.getItem("resumeName"));
   var data = {
     "userId": "".concat(userId),
@@ -470,7 +541,7 @@ if (loginBtn) {
 }
 
 function signUp(name, account, password, passwordConfirm) {
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/register";
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/register";
   var obj = {
     "email": account,
     "password": password,
@@ -493,7 +564,7 @@ function signUp(name, account, password, passwordConfirm) {
 ;
 
 function login(account, password) {
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/login";
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/login";
   var data = {
     "email": account,
     "password": password
@@ -526,7 +597,7 @@ var resumeList = document.querySelector("[data-myResume]");
 function renderData(res) {
   var template = "";
   res.forEach(function (item, index) {
-    template += "\n        <div class=\"resume-shadow p-4 mt-4 mt-lg-8 rounded\">\n          <h4>".concat(item.name, "</h4>\n          <div class=\"mt-4\">\n            <a href=\"#\">https://example.com</a>\n            <button\n              class=\"border-0 bg-transparent opacity-75-hover px-4\"\n              type=\"button\"\n            >\n              <img\n                class=\"w-24px d-inline-block\"\n                src=\"./assets/images/copy.png\"\n                alt=\"copy\"\n                title=\"copy\"\n              />\n            </button>\n            <div class=\"d-lg-flex align-items-center justify-content-between\">\n              <div class=\"d-flex justify-content-between\">\n                <div class=\"text-lg-end\">\n                  <!-- \u7DE8\u8F2F -->\n                  <a\n                    role=editBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block\"\n                    href=\"./editor.html\"\n                    >\u7DE8\u8F2F</a\n                  >\n                </div>\n                <!-- \u7DE8\u8F2F end -->\n                <div class=\"text-lg-end w-50 w-lg-auto\">\n                  <!-- \u700F\u89BD -->\n                  <a\n                    role=viewBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    href=\"./editor.html\"\n                    >\u700F\u89BD</a\n                  >\n                </div>\n                <!-- \u700F\u89BD end -->\n                <div class=\"text-lg-end w-50 w-lg-auto ml-4 ml-lg-0\">\n                  <!-- \u4E0B\u8F09 -->\n                  <button\n                    role=\"downloadBtn\"\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    type=\"button\"\n                  >\n                    \u4E0B\u8F09 (PDF)\n                  </button>\n                </div>\n                <!-- \u4E0B\u8F09 end -->\n              </div>\n              <div class=\"mt-4 mt-lg-8 text-end text-lg-start\">\n                <!-- \u5783\u573E\u6876 -->\n                <button\n                  type=\"button\"\n                  class=\"border-0 bg-transparent opacity-75-hover px-4\"\n                >\n                  <img\n                    role=\"delBtn\"\n                    data-id=").concat(item.id, "\n                    class=\"w-28px d-inline-block\"\n                    src=\"./assets/images/bin.png\"\n                    alt=\"bin\"\n                    title=\"delete\"\n                  />\n                </button>\n              </div>\n              <!-- \u5783\u573E\u6876 end -->\n            </div>\n          </div>\n        </div>\n        ");
+    template += "\n        <div class=\"resume-shadow p-4 mt-4 mt-lg-8 rounded\">\n          <h4>".concat(item.name, "</h4>\n          <div class=\"mt-4\">\n            <a href=\"#\">https://example.com</a>\n            <button\n              class=\"border-0 bg-transparent opacity-75-hover px-4\"\n              type=\"button\"\n            >\n              <img\n                class=\"w-24px d-inline-block\"\n                src=\"./assets/images/copy.png\"\n                alt=\"copy\"\n                title=\"copy\"\n              />\n            </button>\n            <div class=\"d-lg-flex align-items-center justify-content-between\">\n              <div class=\"d-flex justify-content-between\">\n                <div class=\"text-lg-end\">\n                  <!-- \u7DE8\u8F2F -->\n                  <a\n                    role=editBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block\"\n                    href=\"./editor.html\"\n                    >\u7DE8\u8F2F</a\n                  >\n                </div>\n                <!-- \u7DE8\u8F2F end -->\n                <div class=\"text-lg-end w-50 w-lg-auto\">\n                  <!-- \u700F\u89BD -->\n                  <a\n                    role=viewBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    href=\"./editor.html\"\n                    >\u700F\u89BD</a\n                  >\n                </div>\n                <!-- \u700F\u89BD end -->\n                <div class=\"text-lg-end w-50 w-lg-auto ml-4 ml-lg-0\">\n                  <!-- \u4E0B\u8F09 -->\n                  <button\n                    role=\"downloadBtn\"\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    type=\"button\"\n                  >\n                    \u4E0B\u8F09 (PDF)\n                  </button>\n                </div>\n                <!-- \u4E0B\u8F09 end -->\n              </div>\n              <div class=\"mt-4 mt-lg-8 text-end text-lg-start\">\n                <!-- \u5783\u573E\u6876 -->\n                <button\n                  type=\"button\"\n                  class=\"border-0 bg-transparent opacity-75-hover px-4\"\n                >\n                  <img\n                    role=\"delBtn\"\n                    data-id=").concat(item.id, "\n                    class=\"w-28px d-inline-block\"\n                    src=\"./assets/images/bin.png\"\n                    alt=\"bin\"\n                    title=\"delete\"\n                  />\n                </button>\n              </div>\n              <!-- \u5783\u573E\u6876 end -->\n            </div>\n          </div>\n        </div>\n        ");
   });
   return resumeList.innerHTML = template;
 }
@@ -541,7 +612,7 @@ function getResume() {
       "Authorization": "Bearer ".concat(token)
     }
   };
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/users/".concat(userId, "/resumes");
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/users/".concat(userId, "/resumes");
   axios.get(apiUrl, config).then(function (res) {
     renderData(res.data);
   })["catch"](function (err) {
@@ -551,8 +622,18 @@ function getResume() {
 
 ;
 
+function delResumeData() {
+  localStorage.removeItem("resumeId");
+  localStorage.removeItem("fileName");
+  localStorage.removeItem("resumeName");
+  localStorage.removeItem("template");
+  localStorage.removeItem("newTemplate");
+}
+
+;
+
 function delResume(resumeId) {
-  var apiUrl = "https://my-resume-server-pdla9hri6-linlaose.vercel.app/600/resumes/".concat(resumeId);
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/resumes/".concat(resumeId);
   var token = JSON.parse(localStorage.getItem("token"));
   var config = {
     headers: {
@@ -573,7 +654,60 @@ function delResume(resumeId) {
 
 ;
 
+function printResume(targetId) {
+  var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/resumes/".concat(targetId);
+  var token = JSON.parse(localStorage.getItem("token"));
+  var config = {
+    headers: {
+      "Authorization": "Bearer ".concat(token)
+    }
+  };
+  axios.get(apiUrl, config).then(function (res) {
+    var el = document.createElement("div");
+    el.innerHTML = res.data.template;
+    Swal.fire({
+      title: "另存新檔為：",
+      input: "text",
+      showCancelButton: true,
+      cancelButtonText: "取消",
+      confirmButtonText: "確認"
+    }).then(function (result) {
+      if (result.isConfirmed) {
+        localStorage.setItem("fileName", JSON.stringify(result.value));
+        var opt = {
+          margin: 0,
+          filename: JSON.parse(localStorage.getItem("fileName")),
+          image: {
+            type: 'pdf',
+            quality: 0.95
+          },
+          html2canvas: {
+            scale: 2,
+            useCORS: true
+          },
+          // 用 CORS 才能確保能抓到其他網站圖片
+          jsPDF: {
+            unit: 'mm',
+            format: 'letter',
+            orientation: 'p',
+            compressPDF: true
+          },
+          pagebreak: {
+            mode: ['avoid-all', 'css', 'legacy']
+          }
+        };
+        html2pdf().set(opt).from(el).save(); // 換版本
+      }
+    });
+  })["catch"](function (err) {
+    console.log(err);
+  });
+}
+
+;
+
 if (resumeList) {
+  delResumeData();
   getResume();
   resumeList.addEventListener('click', function (e) {
     e.preventDefault();
@@ -585,7 +719,11 @@ if (resumeList) {
     } else if (target === "viewBtn" || target === "editBtn") {
       localStorage.setItem("resumeId", JSON.stringify("".concat(targetId)));
       location.href = "editor.html";
+    } else if (target === "downloadBtn") {
+      printResume(targetId);
     }
+
+    ;
   });
 }
 

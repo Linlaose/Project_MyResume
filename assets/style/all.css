@@ -19331,6 +19331,21 @@ li {
           padding-inline-start: 0;
 }
 
+.js-resume-template li {
+  overflow: hidden;
+  width: 30%;
+}
+
+.js-resume-template li img {
+  -webkit-transition: all .3s;
+  -o-transition: all .3s;
+  transition: all .3s;
+}
+
+.js-resume-template li img:hover {
+  scale: 1.05;
+}
+
 .transition-300 {
   -webkit-transition: all .3s;
   -o-transition: all .3s;
