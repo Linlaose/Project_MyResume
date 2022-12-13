@@ -4,7 +4,7 @@ const editor = document.querySelector("[data-editor]");
 const resumeId = JSON.parse(localStorage.getItem("resumeId"));
 
 function init() {
-  if (resumeId !== null) { // 判斷是否已是現有的履歷
+  if (resumeId !== null) { // 現有履歷
     getContent();
   } else {
     tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST

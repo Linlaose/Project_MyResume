@@ -28,7 +28,7 @@ function drawTemplate(arr) {
     el.innerHTML = item.template;
     designResumeTemplate.appendChild(el);
   });
-  const elArray = designResumeTemplate.children;
+  const elArray = [...designResumeTemplate.children];
   let str = "";
   elArray.forEach((item, index) => {
     html2canvas(item, { useCORS: true }).then(canvas => {
@@ -45,6 +45,7 @@ function receiveResume(resumeId) {
   axios.get(apiUrl)
     .then((res) => {
       localStorage.setItem('template', res.data.template);
+      location.href = 'editor.html';
     })
     .catch((err) => {
       console.log(err);
