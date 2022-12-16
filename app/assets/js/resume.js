@@ -3,10 +3,22 @@ const resumeList = document.querySelector("[data-myResume]");
 
 function renderData(res) {
   let template = "";
-  res.forEach((item, index) => {
+  res.forEach((item) => {
+    if (item.isOpen === true) {
+      item.isOpen = "checked";
+    } else {
+      item.isOpen = "";
+    }
     template += `
         <div class="resume-shadow p-4 mt-4 mt-lg-8 rounded">
-          <h4>${item.name}</h4>
+          <h4 class="d-flex justify-content-between align-items-center">
+            ${item.name}
+            <label class="switch">
+              <input data-id="${item.id}" type="checkbox" ${item.isOpen}/>
+              <span class="slider round"></span>
+            </label>
+          </h4>
+          
           <div class="mt-4">
             <a href="#">https://example.com</a>
             <button
@@ -168,21 +180,41 @@ function printResume(targetId) {
       console.log(err);
     });
 };
+function updateResumeStatus(dataId, status) {
+  const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/resumes/${dataId}`;
+  const token = JSON.parse(localStorage.getItem('token'));
+  const config = {
+    headers: {
+      'Authorization': `Bearer ${token}`
+    }
+  };
+  const data = {
+    isOpen: status
+  };
+
+  axios.patch(apiUrl, data, config)
+    .then(() => {
+      getResume();
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
 
 if (resumeList) {
   delResumeData();
   getResume();
   resumeList.addEventListener('click', (e) => {
-    e.preventDefault();
     const target = e.target.getAttribute("role");
     const targetId = e.target.getAttribute("data-id");
     if (target === "delBtn") {
       delResume(targetId);
     } else if (target === "viewBtn" || target === "editBtn") {
       localStorage.setItem("resumeId", JSON.stringify(`${targetId}`))
-      location.href = "editor.html";
     } else if (target === "downloadBtn") {
       printResume(targetId);
-    };
+    } else if (e.target.type === 'checkbox') {
+      updateResumeStatus(e.target.getAttribute('data-id'), e.target.checked);
+    }
   });
 };
