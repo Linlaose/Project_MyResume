@@ -1,7 +1,3 @@
-$(function () {
-  console.log('Hello Bootstrap5');
-});
-
 // burger
 const burger = document.querySelector('.burger');
 const topLine = document.querySelector('.burger__topline');
@@ -107,3 +103,18 @@ function logout() {
     });
   });
 }
+
+const makeResumes = document.querySelectorAll('#makeResume');
+makeResumes.forEach((item) => {
+  item.addEventListener('click', (e) => {
+    if (!localStorage.getItem('userId')) {
+      e.preventDefault();
+      Swal.fire({
+        icon: "warning",
+        title: "請登入會員",
+      }).then(() => {
+        location.href = 'login.html';
+      })
+    }
+  })
+})
