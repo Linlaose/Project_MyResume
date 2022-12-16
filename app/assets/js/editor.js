@@ -8,6 +8,7 @@ function init() {
     getContent();
   } else {
     tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
+      height: 700,
       selector: '#tinyText',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
@@ -38,6 +39,7 @@ function getContent() {
   axios.get(apiUrl, config)
     .then((res) => {
       tinymce.init({ // tinyMCE 的初始化，在文件有提到是傳送非同步請求 POST
+        height: 700,
         selector: '#tinyText',
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
@@ -118,7 +120,7 @@ function saveResume() {
     }
   };
   axios.post(apiUrl, data, config)
-    .then((res) => {
+    .then(() => {
       window.location.href = "resume.html";
     }).catch((err) => {
       alert(err);
