@@ -12,8 +12,8 @@ function init() {
       selector: '#tinyText',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-      // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
-      content_css: '/assets/style/all.css', // 本地開發路徑
+      content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
+      // content_css: '/assets/style/all.css', // 本地開發路徑
       setup: (editor) => {
         editor.on('blur', () => {
           localStorage.setItem("template", tinymce.activeEditor.getContent());
@@ -43,8 +43,8 @@ function getContent() {
         selector: '#tinyText',
         plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
         toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-        // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
-        content_css: '/assets/style/all.css', // 本地開發路徑
+        content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
+        // content_css: '/assets/style/all.css', // 本地開發路徑
         setup: (editor) => {
           editor.on('blur', () => {
             localStorage.setItem("template", tinymce.activeEditor.getContent());
@@ -79,6 +79,7 @@ function updateResume() {
   const token = JSON.parse(localStorage.getItem("token"));
 
   const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/resumes/${resumeId}`;
+
   const data = {
     "template": template
   };
@@ -109,10 +110,12 @@ function saveResume() {
   const token = JSON.parse(localStorage.getItem("token"));
   const apiUrl = `https://my-resume-server-linlaose.vercel.app/600/users/${userId}/resumes`;
   const name = JSON.parse(localStorage.getItem("resumeName"));
+  const category = JSON.parse(localStorage.getItem("category"));
   const data = {
     "userId": `${userId}`,
     "template": `${template}`,
-    "name": `${name}`
+    "name": `${name}`,
+    "category": `${category}`
   };
   const config = {
     headers: {
@@ -143,10 +146,34 @@ function namedResume() {
     localStorage.setItem('resumeName', JSON.stringify(result.value));
     if (result.isConfirmed) {
       Swal.fire({
-        icon: "success",
-        title: "新增成功",
-      }).then(() => {
-        saveResume();
+        position: 'center',
+        title: '請選擇履歷類別',
+        input: 'select',
+        inputOptions: {
+          '設計類': '設計類',
+          '工程類': '工程類',
+          '管理類': '管理類'
+        },
+        inputPlaceholder: '請選擇類別',
+        confirmButtonText: '確認',
+        showLoaderOnConfirm: true,
+        showCancelButton: true,
+        cancelButtonText: '取消',
+        allowOutsideClick: false
+      }).then((result) => {
+        if (result.isConfirmed) {
+          const value = document.querySelector('.swal2-select').value;
+          localStorage.setItem('category', JSON.stringify(value));
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '新增履歷完成',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(() => {
+            saveResume();
+          })
+        }
       })
     }
   })
