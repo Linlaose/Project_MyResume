@@ -72,10 +72,7 @@ if (myResume) {
 ;
 "use strict";
 
-$(function () {
-  console.log('Hello Bootstrap5');
-}); // burger
-
+// burger
 var burger = document.querySelector('.burger');
 var topLine = document.querySelector('.burger__topline');
 var midLine = document.querySelector('.burger__midline');
@@ -149,6 +146,21 @@ function logout() {
     });
   });
 }
+
+var makeResumes = document.querySelectorAll('#makeResume');
+makeResumes.forEach(function (item) {
+  item.addEventListener('click', function (e) {
+    if (!localStorage.getItem('userId')) {
+      e.preventDefault();
+      Swal.fire({
+        icon: "warning",
+        title: "請登入會員"
+      }).then(function () {
+        location.href = 'login.html';
+      });
+    }
+  });
+});
 "use strict";
 
 var resumeSwiper = new Swiper(".resumeSwiper", {
@@ -269,22 +281,19 @@ function getResumes() {
     };
     var currentUrl = arr[arr.length - 1];
     res.data.forEach(function (item) {
-      switch (item.category) {
-        case '設計類':
+      if (item.isOpen) {
+        if (item.category === '設計類') {
           arrays.design.push(item);
-          break;
-
-        case '工程類':
+        } else if (item.category === '工程類') {
           arrays.engineering.push(item);
-          break;
-
-        case '管理類':
+        } else if (item.category === '管理類') {
           arrays.management.push(item);
-          break;
+        }
 
-        default:
-          console.log('類別 switch 預設');
+        ;
       }
+
+      ;
     });
 
     switch (currentUrl) {
@@ -310,9 +319,9 @@ function getResumes() {
 }
 
 function renderTemplate(arr) {
-  arr.forEach(function (item, index) {
+  arr.forEach(function (item) {
     var el = document.createElement('li');
-    el.setAttribute('data-id', index + 1);
+    el.setAttribute('data-id', item.id);
     el.innerHTML = item.template;
 
     if (designResumeTemplate) {
@@ -327,41 +336,49 @@ function renderTemplate(arr) {
   if (designResumeTemplate) {
     var elArray = _toConsumableArray(designResumeTemplate.children);
 
+    elArray.splice(0, 1); // 刪除 spinner
+
     var str = "";
-    elArray.forEach(function (item, index) {
+    elArray.forEach(function (item) {
       html2canvas(item, {
         useCORS: true
       }).then(function (canvas) {
         var base64 = canvas.toDataURL();
-        str += "<li><a href=\"index.html\"><img data-id=".concat(index + 1, " src=\"").concat(base64, "\"></a></li>");
+        str += "<li><a href=\"index.html\"><img data-id=".concat(item.getAttribute('data-id'), " src=\"").concat(base64, "\"></a></li>");
         designResumeTemplate.innerHTML = str;
       });
     });
   } else if (engineeringResumeTemplate) {
     var _elArray = _toConsumableArray(engineeringResumeTemplate.children);
 
+    _elArray.splice(0, 1); // 刪除 spinner
+
+
     var _str = "";
 
-    _elArray.forEach(function (item, index) {
+    _elArray.forEach(function (item) {
       html2canvas(item, {
         useCORS: true
       }).then(function (canvas) {
         var base64 = canvas.toDataURL();
-        _str += "<li><a href=\"index.html\"><img data-id=".concat(index + 1, " src=\"").concat(base64, "\"></a></li>");
+        _str += "<li><a href=\"index.html\"><img data-id=".concat(item.getAttribute('data-id'), " src=\"").concat(base64, "\"></a></li>");
         engineeringResumeTemplate.innerHTML = _str;
       });
     });
   } else if (managementResumeTemplate) {
     var _elArray2 = _toConsumableArray(managementResumeTemplate.children);
 
+    _elArray2.splice(0, 1); // 刪除 spinner
+
+
     var _str2 = "";
 
-    _elArray2.forEach(function (item, index) {
+    _elArray2.forEach(function (item) {
       html2canvas(item, {
         useCORS: true
       }).then(function (canvas) {
         var base64 = canvas.toDataURL();
-        _str2 += "<li><a href=\"index.html\"><img data-id=".concat(index + 1, " src=\"").concat(base64, "\"></a></li>");
+        _str2 += "<li><a href=\"index.html\"><img data-id=".concat(item.getAttribute('data-id'), " src=\"").concat(base64, "\"></a></li>");
         managementResumeTemplate.innerHTML = _str2;
       });
     });
@@ -451,9 +468,9 @@ function init() {
       selector: '#tinyText',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-      // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
-      content_css: '/assets/style/all.css',
-      // 本地開發路徑
+      content_css: '/Project_MyResume/assets/style/all.css',
+      // 配合 Github 路徑
+      // content_css: '/assets/style/all.css', // 本地開發路徑
       setup: function setup(editor) {
         editor.on('blur', function () {
           localStorage.setItem("template", tinymce.activeEditor.getContent());
@@ -488,9 +505,9 @@ function getContent() {
       selector: '#tinyText',
       plugins: 'anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount code tinydrive',
       toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table | align lineheight | numlist bullist indent outdent | emoticons charmap | code codesample|',
-      // content_css: '/Project_MyResume/assets/style/all.css', // 配合 Github 路徑
-      content_css: '/assets/style/all.css',
-      // 本地開發路徑
+      content_css: '/Project_MyResume/assets/style/all.css',
+      // 配合 Github 路徑
+      // content_css: '/assets/style/all.css', // 本地開發路徑
       setup: function setup(editor) {
         editor.on('blur', function () {
           localStorage.setItem("template", tinymce.activeEditor.getContent());
@@ -564,10 +581,12 @@ function saveResume() {
   var token = JSON.parse(localStorage.getItem("token"));
   var apiUrl = "https://my-resume-server-linlaose.vercel.app/600/users/".concat(userId, "/resumes");
   var name = JSON.parse(localStorage.getItem("resumeName"));
+  var category = JSON.parse(localStorage.getItem("category"));
   var data = {
     "userId": "".concat(userId),
     "template": "".concat(template),
-    "name": "".concat(name)
+    "name": "".concat(name),
+    "category": "".concat(category)
   };
   var config = {
     headers: {
@@ -601,10 +620,34 @@ function namedResume() {
 
     if (result.isConfirmed) {
       Swal.fire({
-        icon: "success",
-        title: "新增成功"
-      }).then(function () {
-        saveResume();
+        position: 'center',
+        title: '請選擇履歷類別',
+        input: 'select',
+        inputOptions: {
+          '設計類': '設計類',
+          '工程類': '工程類',
+          '管理類': '管理類'
+        },
+        inputPlaceholder: '請選擇類別',
+        confirmButtonText: '確認',
+        showLoaderOnConfirm: true,
+        showCancelButton: true,
+        cancelButtonText: '取消',
+        allowOutsideClick: false
+      }).then(function (result) {
+        if (result.isConfirmed) {
+          var value = document.querySelector('.swal2-select').value;
+          localStorage.setItem('category', JSON.stringify(value));
+          Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: '新增履歷完成',
+            showConfirmButton: false,
+            timer: 1500
+          }).then(function () {
+            saveResume();
+          });
+        }
       });
     }
   });
@@ -735,7 +778,7 @@ function renderData(res) {
       item.isOpen = "";
     }
 
-    template += "\n        <div class=\"resume-shadow p-4 mt-4 mt-lg-8 rounded\">\n          <h4 class=\"d-flex justify-content-between align-items-center\">\n            ".concat(item.name, "\n            <label class=\"switch\">\n              <input data-id=\"").concat(item.id, "\" type=\"checkbox\" ").concat(item.isOpen, "/>\n              <span class=\"slider round\"></span>\n            </label>\n          </h4>\n          \n          <div class=\"mt-4\">\n            <a href=\"#\">https://example.com</a>\n            <button\n              class=\"border-0 bg-transparent opacity-75-hover px-4\"\n              type=\"button\"\n            >\n              <img\n                class=\"w-24px d-inline-block\"\n                src=\"./assets/images/copy.png\"\n                alt=\"copy\"\n                title=\"copy\"\n              />\n            </button>\n            <div class=\"d-lg-flex align-items-center justify-content-between\">\n              <div class=\"d-flex justify-content-between\">\n                <div class=\"text-lg-end\">\n                  <!-- \u7DE8\u8F2F -->\n                  <a\n                    role=editBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block\"\n                    href=\"./editor.html\"\n                    >\u7DE8\u8F2F</a\n                  >\n                </div>\n                <!-- \u7DE8\u8F2F end -->\n                <div class=\"text-lg-end w-50 w-lg-auto\">\n                  <!-- \u700F\u89BD -->\n                  <a\n                    role=viewBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    href=\"./editor.html\"\n                    >\u700F\u89BD</a\n                  >\n                </div>\n                <!-- \u700F\u89BD end -->\n                <div class=\"text-lg-end w-50 w-lg-auto ml-4 ml-lg-0\">\n                  <!-- \u4E0B\u8F09 -->\n                  <button\n                    role=\"downloadBtn\"\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    type=\"button\"\n                  >\n                    \u4E0B\u8F09 (PDF)\n                  </button>\n                </div>\n                <!-- \u4E0B\u8F09 end -->\n              </div>\n              <div class=\"mt-4 mt-lg-8 text-end text-lg-start\">\n                <!-- \u5783\u573E\u6876 -->\n                <button\n                  type=\"button\"\n                  class=\"border-0 bg-transparent opacity-75-hover px-4\"\n                >\n                  <img\n                    role=\"delBtn\"\n                    data-id=").concat(item.id, "\n                    class=\"w-28px d-inline-block\"\n                    src=\"./assets/images/bin.png\"\n                    alt=\"bin\"\n                    title=\"delete\"\n                  />\n                </button>\n              </div>\n              <!-- \u5783\u573E\u6876 end -->\n            </div>\n          </div>\n        </div>\n        ");
+    template += "\n        <div class=\"resume-shadow p-4 mt-4 mt-lg-8 rounded\">\n          <h4 class=\"d-flex justify-content-between align-items-center\">\n            <p class=\"m-0\">\n              ".concat(item.name, "\n              <span class=\"fs-span text-light\">\n                ").concat(item.category, "\n              </span>\n            </p>\n            <label class=\"switch\">\n              <input data-id=\"").concat(item.id, "\" type=\"checkbox\" ").concat(item.isOpen, "/>\n              <span class=\"slider round\"></span>\n            </label>\n          </h4>\n          \n          <div class=\"mt-4\">\n            <a href=\"#\">https://example.com</a>\n            <button\n              class=\"border-0 bg-transparent opacity-75-hover px-4\"\n              type=\"button\"\n            >\n              <img\n                class=\"w-24px d-inline-block\"\n                src=\"./assets/images/copy.png\"\n                alt=\"copy\"\n                title=\"copy\"\n              />\n            </button>\n            <div class=\"d-lg-flex align-items-center justify-content-between\">\n              <div class=\"d-flex justify-content-between\">\n                <div class=\"text-lg-end\">\n                  <!-- \u7DE8\u8F2F -->\n                  <a\n                    role=editBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 w-100 w-lg-auto d-none d-lg-inline-block\"\n                    href=\"./editor.html\"\n                    >\u7DE8\u8F2F</a\n                  >\n                </div>\n                <!-- \u7DE8\u8F2F end -->\n                <div class=\"text-lg-end w-50 w-lg-auto\">\n                  <!-- \u700F\u89BD -->\n                  <a\n                    role=viewBtn\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    href=\"./editor.html\"\n                    >\u700F\u89BD</a\n                  >\n                </div>\n                <!-- \u700F\u89BD end -->\n                <div class=\"text-lg-end w-50 w-lg-auto ml-4 ml-lg-0\">\n                  <!-- \u4E0B\u8F09 -->\n                  <button\n                    role=\"downloadBtn\"\n                    data-id=").concat(item.id, "\n                    class=\"btn rounded-pill background-gradient-linear text-white py-3 px-6 fs-base fs-lg-5 mt-8 mt-lg-10 ml-lg-4 w-100 w-lg-auto\"\n                    type=\"button\"\n                  >\n                    \u4E0B\u8F09 (PDF)\n                  </button>\n                </div>\n                <!-- \u4E0B\u8F09 end -->\n              </div>\n              <div class=\"mt-4 mt-lg-8 text-end text-lg-start\">\n                <!-- \u5783\u573E\u6876 -->\n                <button\n                  type=\"button\"\n                  class=\"border-0 bg-transparent opacity-75-hover px-4\"\n                >\n                  <img\n                    role=\"delBtn\"\n                    data-id=").concat(item.id, "\n                    class=\"w-28px d-inline-block\"\n                    src=\"./assets/images/bin.png\"\n                    alt=\"bin\"\n                    title=\"delete\"\n                  />\n                </button>\n              </div>\n              <!-- \u5783\u573E\u6876 end -->\n            </div>\n          </div>\n        </div>\n        ");
   });
   return resumeList.innerHTML = template;
 }

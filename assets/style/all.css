@@ -10315,6 +10315,10 @@ fieldset:disabled .btn {
   font-size: 1rem !important;
 }
 
+.fs-span {
+  font-size: 0.875rem !important;
+}
+
 .fst-italic {
   font-style: italic !important;
 }
@@ -12486,6 +12490,9 @@ fieldset:disabled .btn {
   .fs-sm-base {
     font-size: 1rem !important;
   }
+  .fs-sm-span {
+    font-size: 0.875rem !important;
+  }
   .text-sm-start {
     text-align: left !important;
   }
@@ -14124,6 +14131,9 @@ fieldset:disabled .btn {
   }
   .fs-md-base {
     font-size: 1rem !important;
+  }
+  .fs-md-span {
+    font-size: 0.875rem !important;
   }
   .text-md-start {
     text-align: left !important;
@@ -15764,6 +15774,9 @@ fieldset:disabled .btn {
   .fs-lg-base {
     font-size: 1rem !important;
   }
+  .fs-lg-span {
+    font-size: 0.875rem !important;
+  }
   .text-lg-start {
     text-align: left !important;
   }
@@ -17402,6 +17415,9 @@ fieldset:disabled .btn {
   }
   .fs-xl-base {
     font-size: 1rem !important;
+  }
+  .fs-xl-span {
+    font-size: 0.875rem !important;
   }
   .text-xl-start {
     text-align: left !important;
@@ -19042,6 +19058,9 @@ fieldset:disabled .btn {
   .fs-xxl-base {
     font-size: 1rem !important;
   }
+  .fs-xxl-span {
+    font-size: 0.875rem !important;
+  }
   .text-xxl-start {
     text-align: left !important;
   }
@@ -19517,6 +19536,30 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+.spinner {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: conic-gradient(#0000 10%, #474bff);
+  -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
+  -webkit-animation: spinner-zp9dbg 1s infinite linear;
+          animation: spinner-zp9dbg 1s infinite linear;
+}
+
+@-webkit-keyframes spinner-zp9dbg {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
+}
+
+@keyframes spinner-zp9dbg {
+  to {
+    -webkit-transform: rotate(1turn);
+            transform: rotate(1turn);
+  }
 }
 
 .resumeSwiper {
