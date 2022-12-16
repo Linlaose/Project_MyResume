@@ -22,19 +22,15 @@ function getResumes() {
       };
       const currentUrl = arr[arr.length - 1];
       res.data.forEach((item) => {
-        switch (item.category) {
-          case '設計類':
+        if (item.isOpen) {
+          if (item.category === '設計類') {
             arrays.design.push(item);
-            break
-          case '工程類':
+          } else if (item.category === '工程類') {
             arrays.engineering.push(item);
-            break
-          case '管理類':
+          } else if (item.category === '管理類') {
             arrays.management.push(item);
-            break
-          default:
-            console.log('類別 switch 預設');
-        }
+          };
+        };
       });
       switch (currentUrl) {
         case 'design.html':
@@ -57,9 +53,9 @@ function getResumes() {
 }
 
 function renderTemplate(arr) {
-  arr.forEach((item, index) => {
+  arr.forEach((item) => {
     const el = document.createElement('li');
-    el.setAttribute('data-id', index + 1);
+    el.setAttribute('data-id', item.id);
     el.innerHTML = item.template;
     if (designResumeTemplate) {
       designResumeTemplate.appendChild(el);
@@ -71,31 +67,34 @@ function renderTemplate(arr) {
   });
   if (designResumeTemplate) {
     const elArray = [...designResumeTemplate.children];
+    elArray.splice(0, 1); // 刪除 spinner
     let str = "";
-    elArray.forEach((item, index) => {
+    elArray.forEach((item) => {
       html2canvas(item, { useCORS: true }).then(canvas => {
         const base64 = canvas.toDataURL();
-        str += `<li><a href="index.html"><img data-id=${index + 1} src="${base64}"></a></li>`;
+        str += `<li><a href="index.html"><img data-id=${item.getAttribute('data-id')} src="${base64}"></a></li>`;
         designResumeTemplate.innerHTML = str;
       });
     })
   } else if (engineeringResumeTemplate) {
     const elArray = [...engineeringResumeTemplate.children];
+    elArray.splice(0, 1); // 刪除 spinner
     let str = "";
-    elArray.forEach((item, index) => {
+    elArray.forEach((item) => {
       html2canvas(item, { useCORS: true }).then(canvas => {
         const base64 = canvas.toDataURL();
-        str += `<li><a href="index.html"><img data-id=${index + 1} src="${base64}"></a></li>`;
+        str += `<li><a href="index.html"><img data-id=${item.getAttribute('data-id')} src="${base64}"></a></li>`;
         engineeringResumeTemplate.innerHTML = str;
       });
     })
   } else if (managementResumeTemplate) {
     const elArray = [...managementResumeTemplate.children];
+    elArray.splice(0, 1); // 刪除 spinner
     let str = "";
-    elArray.forEach((item, index) => {
+    elArray.forEach((item) => {
       html2canvas(item, { useCORS: true }).then(canvas => {
         const base64 = canvas.toDataURL();
-        str += `<li><a href="index.html"><img data-id=${index + 1} src="${base64}"></a></li>`;
+        str += `<li><a href="index.html"><img data-id=${item.getAttribute('data-id')} src="${base64}"></a></li>`;
         managementResumeTemplate.innerHTML = str;
       });
     })

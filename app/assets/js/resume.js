@@ -12,7 +12,12 @@ function renderData(res) {
     template += `
         <div class="resume-shadow p-4 mt-4 mt-lg-8 rounded">
           <h4 class="d-flex justify-content-between align-items-center">
-            ${item.name}
+            <p class="m-0">
+              ${item.name}
+              <span class="fs-span text-light">
+                ${item.category}
+              </span>
+            </p>
             <label class="switch">
               <input data-id="${item.id}" type="checkbox" ${item.isOpen}/>
               <span class="slider round"></span>
