@@ -8,6 +8,12 @@
 
 https://linlaose.github.io/Project_MyResume/
 
+已存在的 Demo 帳號密碼：
+
+帳號: a1234@gmail.com
+
+密碼: 3edc4rfv
+
 ## 簡介
 
 對於拖拉模板以及編輯器如何實作感興趣且將 CakeResume 網站作為版型參考，藉以練習拖拉模板與編輯器的應用。
