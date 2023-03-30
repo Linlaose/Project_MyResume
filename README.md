@@ -89,7 +89,7 @@ https://linlaose.github.io/Project_MyResume/
 ![](https://imgur.com/VkyXzZW.png)
 ![](https://imgur.com/YdDCmpp.png)
 
-## 開發時程大約一個月
+## 開發時程大約 20 天
 
 本作品完成時間為 2022/12/16
 
