@@ -32,7 +32,7 @@ https://linlaose.github.io/Project_MyResume/
 
 - 線稿
   - Whimsical => [線稿連結](https://whimsical.com/myresume-T9bBgfMaNmFjMsoZkmnfph)
-- 設計師 by Selina => [設計稿連結](https://www.figma.com/file/1kshKN3MxrbzANiFWxnVUP/MyResume-%E5%B1%A5%E6%AD%B7%E8%A3%BD%E4%BD%9C%E7%B6%B2%E7%AB%99?node-id=0%3A1&t=0zEYPAmQOKTN6IEa-1)
+- 設計師 by Selina (selinaf.wk@gmail.com) => [設計稿連結](https://www.figma.com/file/1kshKN3MxrbzANiFWxnVUP/MyResume-%E5%B1%A5%E6%AD%B7%E8%A3%BD%E4%BD%9C%E7%B6%B2%E7%AB%99?node-id=0%3A1&t=0zEYPAmQOKTN6IEa-1)
 
 - 前台:
 
